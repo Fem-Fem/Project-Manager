@@ -1,23 +1,20 @@
 class WorkerController < ApplicationController
 
   def index
+    @worker = Worker.all
+    render 'workers/index'
   end
 
-  get '/workers/new' do
+  def show
   end
 
-  post '/workers/index' do
+  def edit
   end
 
-  get '/workers/:id' do
+  def new
   end
 
-  get '/workers/:id/edit' do
+  def delete
   end
 
-  patch '/workers/:id/edit' do
-  end
-
-  delete '/workers/:id/delete' do
-  end
 end
