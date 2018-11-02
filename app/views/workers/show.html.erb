@@ -1,0 +1,8 @@
+<p><a href = "/companies/<%= @worker.company_id%>"><%= @worker.company.name %>
+<%= div_for(@worker.projects, class: "company-index-page") do %>
+<p>
+  <a href = "/projects/<%= @worker.project.id %>">
+    <%= @worker.project.name %>
+  </a>
+</p>
+<% end %>
