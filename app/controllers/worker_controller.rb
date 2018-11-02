@@ -1,6 +1,6 @@
 class WorkerController < ApplicationController
 
-  get '/workers/index' do
+  def index
   end
 
   get '/workers/new' do

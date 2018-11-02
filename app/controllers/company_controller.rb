@@ -1,6 +1,6 @@
 class CompanyController < ApplicationController
 
-  get '/companies/index' do
+  def index
   end
 
   get '/companies/new' do

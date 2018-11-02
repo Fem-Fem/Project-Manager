@@ -1,6 +1,6 @@
 class ProjectController < ApplicationController
 
-  get '/projects/index' do
+  def index
   end
 
   get '/projects/new' do
