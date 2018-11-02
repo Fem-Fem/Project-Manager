@@ -4,16 +4,10 @@ class CompanyController < ApplicationController
 
   def index
     @companies = Company.all
-    render 'companies/index'
   end
 
   def signup
-    @company = Company.new
-    @company.name = params[:name]
-    @company.password = params[:password]
-    @company.motto = params[:motto]
-    @company.location = params[:location]
-    #
+    @company = Company.new(name: params[:name], password: params[:password], location: params[:location], motto: params[:motto])
     if @company.valid?
       @company.save
       redirect to company_path(@company)
