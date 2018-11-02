@@ -20,6 +20,9 @@ class WorkerController < ApplicationController
   end
 
   def update
+    @worker = Worker.find(params[:id])
+    @worker.update(name: params[:name], position: params[:position])
+    redirect_to worker_path(@worker)
   end
 
   def new
