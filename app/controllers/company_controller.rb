@@ -14,36 +14,15 @@ class CompanyController < ApplicationController
   def new
   end
 
-  post '/companies/index' do
+  def delete
   end
 
-  get '/companies/:id' do
+  def signup
   end
 
-  get '/companies/:id/edit' do
+  def login
   end
 
-  patch '/companies/:id/edit' do
-  end
-
-  delete '/companies/:id/delete' do
-  end
-
-  get '/login' do
-  end
-
-  post '/login' do
-  end
-
-  get '/signup' do
-  end
-
-  post '/signup' do
-  end
-
-  get '/logout' do
-  end
-
-  post '/logout' do
+  def logout
   end
 end
