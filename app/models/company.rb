@@ -4,4 +4,5 @@ class Company < ActiveRecord::Base
   has_secure_password
   validates_presence_of :name, :location, :password, :motto
   validates :name, uniqueness: true
+  validates :motto, uniqueness: true
 end
