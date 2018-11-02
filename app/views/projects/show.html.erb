@@ -1,0 +1,13 @@
+<%= div_for(@project.companies, class: "project-index-page") do %>
+<p>
+  <a href = "/companies/<%= @project.companies.id %>">
+    <%= @project.companies.name %>
+  </a>
+  <%= @project.companies.motto %>
+  <%= @project.companies.workers each do |worker| %>
+    <%= if worker.project_id == @project.id %>
+      <a href = "/workers/<%= worker.id %>"><%= worker.name %></a>
+    <% end %>
+  <% end %>
+</p>
+<% end %>
