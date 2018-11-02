@@ -11,8 +11,13 @@ class CompanyController < ApplicationController
     @company.password = params[:password]
     @company.motto = params[:motto]
     @company.location = params[:location]
-    @company.save
-    redirect to company_path(@company)
+    #
+    if @company.valid?
+      @company.save
+      redirect to company_path(@company)
+    else
+      render :new
+    end
   end
 
   def show

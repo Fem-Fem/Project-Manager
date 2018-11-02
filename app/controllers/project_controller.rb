@@ -9,8 +9,13 @@ class ProjectController < ApplicationController
     @project = Project.new
     @project.name = params[:name]
     @project.description = params[:description]
-    @project.save
-    redirect to project_path(@project)
+    #
+    if @project.valid?
+      @project.save
+      redirect to project_path(@project)
+    else
+      render :new
+    end
   end
 
   def show

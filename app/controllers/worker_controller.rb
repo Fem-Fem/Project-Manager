@@ -12,8 +12,12 @@ class WorkerController < ApplicationController
     @worker = Worker.new
     @worker.name = params[:name]
     @worker.position = params[:position]
-    @worker.save
-    redirect to worker_path(@worker)
+    if @worker.valid?
+      @worker.save
+      redirect to worker_path(@worker)
+    else
+      render :new
+    end
   end
 
   def show
