@@ -1,3 +1,5 @@
 <%= div_for(@worker, class: "worker-index-page") do %>
-  <p><%= @worker.name %></p>
+  <p><a href = "/workers/<%= @worker.id %>"<%= @worker.name %></a></p>
 <% end %>
+
+<%= link_to "Log Out", "/logout"%>
