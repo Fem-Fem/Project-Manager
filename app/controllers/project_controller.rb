@@ -1,24 +1,20 @@
 class ProjectController < ApplicationController
 
   def index
+    @projects = Project.all
+    render 'projects/index'
   end
 
-  get '/projects/new' do
+  def show
   end
 
-  post '/projects/index' do
+  def edit
   end
 
-  get '/projects/:id' do
+  def new
   end
 
-  get '/projects/:id/edit' do
-  end
-
-  patch '/projects/:id/edit' do
-  end
-
-  delete '/projects/:id/delete' do
+  def delete
   end
 
 end
