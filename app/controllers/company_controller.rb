@@ -24,7 +24,13 @@ class CompanyController < ApplicationController
   end
 
   def login
-
+    @company = Company.find(params[:name])
+    if @company && @company.authenticate(params[:name])
+      session[:name] = params[:name]
+      redirect to company_path(@company)
+    else
+      render :account
+    end
   end
 
   def show
