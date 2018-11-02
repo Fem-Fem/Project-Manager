@@ -1,9 +1,17 @@
 class CompanyController < ApplicationController
 
   def index
+    @companies = Company.all
+    render 'companies/index'
   end
 
-  get '/companies/new' do
+  def show
+  end
+
+  def edit
+  end
+
+  def new
   end
 
   post '/companies/index' do
