@@ -6,12 +6,6 @@ class CompanyController < ApplicationController
   end
 
   def signup
-  end
-
-  def login
-  end
-
-  def create
     @company = Company.new
     @company.name = params[:name]
     @company.password = params[:password]
@@ -24,6 +18,9 @@ class CompanyController < ApplicationController
     else
       render :new
     end
+  end
+
+  def login
   end
 
   def show
