@@ -5,6 +5,14 @@ class ProjectController < ApplicationController
     render 'projects/index'
   end
 
+  def create
+    @project = Project.new
+    @project.name = params[:name]
+    @project.description = params[:description]
+    @project.save
+    redirect to project_path(@project)
+  end
+
   def show
   end
 

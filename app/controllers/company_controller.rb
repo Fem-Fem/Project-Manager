@@ -5,6 +5,16 @@ class CompanyController < ApplicationController
     render 'companies/index'
   end
 
+  def create
+    @company = Company.new
+    @company.name = params[:name]
+    @company.password = params[:password]
+    @company.motto = params[:motto]
+    @company.location = params[:location]
+    @company.save
+    redirect to company_path(@company)
+  end
+
   def show
   end
 

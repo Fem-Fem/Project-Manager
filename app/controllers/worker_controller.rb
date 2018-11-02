@@ -5,6 +5,14 @@ class WorkerController < ApplicationController
     render 'workers/index'
   end
 
+  def create
+    @worker = Worker.new
+    @worker.name = params[:name]
+    @worker.position = params[:position]
+    @worker.save
+    redirect to worker_path(@worker)
+  end
+
   def show
   end
 
