@@ -3,8 +3,8 @@ class CreateWorkers < ActiveRecord::Migration
     create_table :workers do |t|
       t.string :name
       t.string :position
-      t.integer :user_id
-      t.integer :task_id
+      t.integer :company_id
+      t.integer :project_id
       t.timestamps null: false
     end
   end
