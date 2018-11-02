@@ -1,4 +1,5 @@
 class WorkerController < ApplicationController
+  before_action :require_login
 
   def index
     @worker = Worker.all
@@ -6,6 +7,7 @@ class WorkerController < ApplicationController
   end
 
   def new
+    @worker = Worker.new
   end
 
   def create

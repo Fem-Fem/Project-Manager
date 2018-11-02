@@ -1,4 +1,6 @@
 class CompanyController < ApplicationController
+  before_action :require_login
+  skip_before_action :require_login, only: [:signup, :login, :account]
 
   def index
     @companies = Company.all
@@ -21,6 +23,7 @@ class CompanyController < ApplicationController
   end
 
   def login
+
   end
 
   def show
