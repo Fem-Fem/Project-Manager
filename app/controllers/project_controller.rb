@@ -24,6 +24,7 @@ class ProjectController < ApplicationController
   end
 
   def show
+    @project = Project.find(params[:id])
   end
 
   def edit
@@ -34,8 +35,6 @@ class ProjectController < ApplicationController
     @project.update(name: params[:name], description: params[:description])
     redirect_to project_path(@project)
   end
-
-
 
   def delete
     @project = Project.find(params[:id]).destroy

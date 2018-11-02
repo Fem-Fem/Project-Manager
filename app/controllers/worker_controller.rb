@@ -23,6 +23,7 @@ class WorkerController < ApplicationController
   end
 
   def show
+    @worker = Worker.find(params[:id])
   end
 
   def edit
