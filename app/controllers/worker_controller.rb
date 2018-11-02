@@ -35,7 +35,6 @@ class WorkerController < ApplicationController
     redirect_to worker_path(@worker)
   end
 
-
   def delete
     @worker = Worker.find(params[:id]).destroy
     redirect_to workers_path
