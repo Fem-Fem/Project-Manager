@@ -17,6 +17,7 @@ class CompanyController < ApplicationController
     if @company.valid?
       @company.save
       redirect to company_path(@company)
+      session[:name] = params[:name]
     else
       render :new
     end
@@ -27,8 +28,12 @@ class CompanyController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
   end
 
   def logout
+    if session[:name]
+      session[:name] = nil
+    end
   end
 end
