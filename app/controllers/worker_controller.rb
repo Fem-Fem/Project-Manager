@@ -5,6 +5,9 @@ class WorkerController < ApplicationController
     render 'workers/index'
   end
 
+  def new
+  end
+
   def create
     @worker = Worker.new
     @worker.name = params[:name]
@@ -25,10 +28,10 @@ class WorkerController < ApplicationController
     redirect_to worker_path(@worker)
   end
 
-  def new
-  end
 
   def delete
+    @worker = Worker.find(params[:id]).destroy
+    redirect_to workers_path
   end
 
 end

@@ -21,9 +21,6 @@ class CompanyController < ApplicationController
   def new
   end
 
-  def delete
-  end
-
   def signup
   end
 
