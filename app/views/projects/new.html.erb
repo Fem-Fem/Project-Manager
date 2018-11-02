@@ -1,0 +1,8 @@
+<%= form_tag projects_path do %>
+  <label>Project Name:</label><br>
+  <%= text_field_tag :'project[name]' %><br>
+  <label>Project Description:</label><br>
+  <%= text_field_tag :'project[description]' %><br>
+
+  <%= submit_tag "Create Project" %>
+<% end %>

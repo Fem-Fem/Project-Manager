@@ -1,0 +1,12 @@
+<%= form_tag companies_path do %>
+  <label>Company Name:</label><br>
+  <%= text_field_tag :'company[name]' %><br>
+  <label>Company Password:</label><br>
+  <%= text_field_tag :'company[password]' %><br>
+  <label>Company Location:</label><br>
+  <%= text_field_tag :'company[location]' %><br>
+  <label>Company Motto:</label><br>
+  <%= text_field_tag :'company[motto]' %><br>
+
+  <%= submit_tag "Signup" %>
+<% end %>
