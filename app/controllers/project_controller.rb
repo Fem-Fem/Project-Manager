@@ -5,6 +5,10 @@ class ProjectController < ApplicationController
     render 'projects/index'
   end
 
+  def new
+    @project = Project.new
+  end
+
   def create
     @project = Project.new
     @project.name = params[:name]
@@ -30,8 +34,7 @@ class ProjectController < ApplicationController
     redirect_to project_path(@project)
   end
 
-  def new
-  end
+
 
   def delete
     @project = Project.find(params[:id]).destroy

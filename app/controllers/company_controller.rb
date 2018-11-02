@@ -5,6 +5,12 @@ class CompanyController < ApplicationController
     render 'companies/index'
   end
 
+  def signup
+  end
+
+  def login
+  end
+
   def create
     @company = Company.new
     @company.name = params[:name]
@@ -21,15 +27,6 @@ class CompanyController < ApplicationController
   end
 
   def show
-  end
-
-  def new
-  end
-
-  def signup
-  end
-
-  def login
   end
 
   def logout
