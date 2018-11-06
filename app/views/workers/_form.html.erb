@@ -1,4 +1,8 @@
-<%= link_to "Log Out", "/logout"%>
-<%= link_to "All Workers", "/workers/index"%>
-<%= link_to "All Projects", "/projecs/index"%>
-<%= link_to "All Companies", "/companies/index"%>
+<%= form_tag workers_path do %>
+  <label>Worker Name:</label><br>
+  <%= text_field_tag :'worker[name]' %><br>
+  <label>Worker Position:</label><br>
+  <%= text_field_tag :'worker[position]' %><br>
+
+  <%= submit_tag "Create Worker" %>
+<% end %>
