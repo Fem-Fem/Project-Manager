@@ -1,3 +1,5 @@
 <%= div_for(@companies, class: "company-index-page") do |company| %>
 <p><a href = "/companies/<%= company.id %>"><%= company.name %></a>: <%= company.motto %></p>
 <% end %>
+
+<%= render 'workers/footer' %>
