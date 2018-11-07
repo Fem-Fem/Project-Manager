@@ -1,6 +1,6 @@
 class CreateProjects < ActiveRecord::Migration
   def change
-    create_table :task do |t|
+    create_table :projects do |t|
       t.string :name
       t.string :description
       # boolean for status?
@@ -11,14 +11,14 @@ class CreateProjects < ActiveRecord::Migration
   end
 end
 
-Companies are all working together for something
-
-project has many workers
-
-companies has many workers
-
-projects have many companies, through workers
-companies have many projects, through workers
+# Companies are all working together for something
+#
+# project has many workers
+#
+# companies has many workers
+#
+# projects have many companies, through workers
+# companies have many projects, through workers
 
 #
 # tasks has many
