@@ -3,12 +3,12 @@
   <a href = "/companies/<%= company.id %>">
     <%= company.name %>
   </a>
-  <%= binding.pry %>
-  <%= @project.companies.motto %>
-  <%= @project.companies.workers each do |worker| %>
-    <%= if worker.project_id == @project.id %>
-      <a href = "/workers/<%= worker.id %>"><%= worker.name %></a>
-    <% end %>
-  <% end %>
+  <%= company.motto %>
 </p>
+<% end %>
+
+<%= Worker.all.each do |worker| %>
+  <% if worker.project_id == @project.id %>
+    <p><%= worker.name %></p>
+  <% end %>
 <% end %>
