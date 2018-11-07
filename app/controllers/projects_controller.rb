@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    render 'projects/index'
   end
 
   def new
