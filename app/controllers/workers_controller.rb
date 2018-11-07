@@ -11,11 +11,11 @@ class WorkersController < ApplicationController
 
   def create
     @worker = Worker.new
-    @worker.name = params[:name]
-    @worker.position = params[:position]
+    @worker.name = params[:worker][:name]
+    @worker.position = params[:worker][:position]
     if @worker.valid?
       @worker.save
-      redirect to worker_path(@worker)
+      redirect_to workers_path
     else
       render :new
     end
