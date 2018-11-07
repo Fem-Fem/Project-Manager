@@ -51,6 +51,9 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def most_popular
+  end
+
   private
 
   def require_login
