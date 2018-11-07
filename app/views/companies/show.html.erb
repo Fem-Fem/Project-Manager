@@ -1,14 +1,21 @@
-<%= div_for(@company.projects, class: "company-index-page") do %>
-<p>
-  <a href = "/projects/<%= @company.project.id %>">
-    <%= @company.project.name %>
-  </a>
-  <%= @company.project.description %>
-    <%= @company.project.workers each do |worker| %>
-    <a href = "/projects/<%= @company.project.id %>">
-      <%= worker.name %>
-    </a>
-  <% end %>
+<h1><%= @company.name %></h1>
 
+<h3><%= @company.motto %></h3>
+
+<h2>Projects: </h2>
+<% @company.projects.each do |project| %>
+<p>
+  <a href = "/projects/<%= project.id %>">
+    <%= project.name %>:</a>
+  <%= project.description %>
+</p>
+<% end %>
+
+<h2>Workers: </h2>
+<% @company.workers.each do |worker| %>
+<p>
+  <a href = "/workers/<%= worker.id %>">
+    <%= worker.name %>:</a>
+  <%= worker.position %>
 </p>
 <% end %>
