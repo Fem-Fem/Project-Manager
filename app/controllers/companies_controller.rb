@@ -28,7 +28,6 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    binding.pry
     @company = Company.find(params[:id])
   end
 
