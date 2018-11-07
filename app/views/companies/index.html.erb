@@ -1,5 +1,3 @@
-<%= div_for(@company, class: "company-index-page") do %>
-<p><a href = "/companies/<%= @company.id %>"><%= @company.name %></a><%= @comapny.motto %></p>
+<%= div_for(@company, class: "company-index-page") do |company| %>
+<p><a href = "/companies/<%= company.id %>"><%= company.name %></a><%= comapny.motto %></p>
 <% end %>
-
-<p>index</p>
