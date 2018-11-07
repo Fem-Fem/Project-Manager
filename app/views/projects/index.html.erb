@@ -1,4 +1,3 @@
 <%= div_for(@projects, class: "project-index-page") do |project| %>
-  <%= binding.pry %>
-  <p><a href = "/projects/<%= project.id %>"><%= project.name %></a><%= project.description %></p>
+  <p><a href = "/projects/<%= project.id %>"><%= project.name %></a>: <%= project.description %></p>
 <% end %>

@@ -1,4 +1,5 @@
-<%= div_for(@worker, class: "worker-index-page") do |company| %>
+<%= div_for(@worker, class: "worker-index-page") do |worker| %>
+  <%= binding.pry %>
   <p><a href = "/workers/<%= worker.id %>"><%= worker.name %></a></p>
 <% end %>
 
