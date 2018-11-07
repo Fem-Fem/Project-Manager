@@ -1,7 +1,3 @@
-<%= form_for @project do |f| %>
-  <%= f.label 'Project Name:' %><br>
-  <%= f.text_field :name %><br>
-  <%= f.label 'Project Description:' %><br>
-  <%= f.text_field :description %><br>
-  <%= f.submit "Update Project" %>
+<%= form_tag project_path(@project), method: "put" do %>
+  <%= render 'form' %>
 <% end %>
