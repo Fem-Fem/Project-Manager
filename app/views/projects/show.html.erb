@@ -11,7 +11,7 @@
 </p>
 <% end %>
 
-<%= Worker.all.each do |worker| %>
+<% Worker.all.each do |worker| %>
   <% if worker.project_id == @project.id %>
     <p><%= worker.name %></p>
   <% end %>
