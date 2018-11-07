@@ -1,4 +1,4 @@
-class CompanyController < ApplicationController
+class CompaniesController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:signup, :login, :account]
 
@@ -35,5 +35,11 @@ class CompanyController < ApplicationController
     if session[:name]
       session[:name] = nil
     end
+  end
+
+  private
+
+  def require_login
+    return head(:forbidden) unless session.include? :company_id
   end
 end

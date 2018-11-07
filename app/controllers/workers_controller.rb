@@ -1,4 +1,4 @@
-class WorkerController < ApplicationController
+class WorkersController < ApplicationController
   before_action :require_login
 
   def index
