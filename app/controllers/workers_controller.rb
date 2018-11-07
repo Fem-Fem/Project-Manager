@@ -26,6 +26,7 @@ class WorkersController < ApplicationController
   end
 
   def edit
+    @worker = Worker.find(params[:id])
   end
 
   def update
