@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   resources :companies, only: [:index, :show, :new, :edit, :account, :login, :signup, :update]
-  resources :projects, only: [:index, :show, :new, :edit, :update, :create]
+  resources :projects, only: [:index, :show, :new, :edit, :update, :create] do
+    resources :workers, only: [:index, :show]
+  end
   resources :workers, only: [:index, :show, :new, :edit, :delete, :update, :create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
