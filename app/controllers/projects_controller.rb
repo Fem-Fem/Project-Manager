@@ -41,4 +41,10 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  private
+
+  def require_login
+    return head(:forbidden) unless session.include? :company_id
+  end
+
 end
