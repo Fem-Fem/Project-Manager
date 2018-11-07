@@ -19,9 +19,12 @@ jake = Worker.create(name: "Jake", position: "Backend Engineer I")
 
 femi.company_id = apple.id
 femi.project_id = self_driving_car.id
+femi.save
 
 clara.company_id = microsoft.id
 clara.project_id = mind_reading_technology.id
+clara.save
 
 jake.company_id = google.id
 jake.project_id = teaching_people_to_code.id
+jake.save
