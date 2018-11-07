@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :require_login
-  skip_before_action :require_login, only: [:signup, :login, :account]
+  # before_action :require_login
+  # skip_before_action :require_login, only: [:signup, :login, :account]
 
   def index
     @companies = Company.all
@@ -28,7 +28,8 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    binding.pry
+    @company = Company.find(params[:id])
   end
 
   def logout
