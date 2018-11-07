@@ -7,7 +7,6 @@ class WorkersController < ApplicationController
   end
 
   def new
-    @worker = Worker.new
   end
 
   def create
