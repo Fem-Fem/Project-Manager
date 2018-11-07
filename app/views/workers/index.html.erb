@@ -1,6 +1,3 @@
 <%= div_for(@worker, class: "worker-index-page") do |worker| %>
-  <%= binding.pry %>
-  <p><a href = "/workers/<%= worker.id %>"><%= worker.name %></a></p>
+  <p><a href = "/workers/<%= worker.id %>"><%= worker.name %></a>: <%= worker.position %></p>
 <% end %>
-
-<%= link_to "Log Out", "/logout"%>
