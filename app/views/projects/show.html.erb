@@ -1,18 +1,20 @@
-<p>
-  <%= @project.name %>: <%= @project.description %>
-</p>
+<h1><%= @project.name %>: </h1>
+<h3><%= @project.description %></h3>
 
 <% @project.companies.each do |company| %>
 <p>
   <a href = "/companies/<%= company.id %>">
-    <%= company.name %>
-  </a>
+    <%= company.name %></a>:
   <%= company.motto %>
 </p>
 <% end %>
 
 <% Worker.all.each do |worker| %>
   <% if worker.project_id == @project.id %>
-    <p><%= worker.name %></p>
+    <p>
+      <a href = "/workers/<%= worker.id %>">
+        <%= worker.name %></a>:
+      <%= worker.position %>
+    </p>
   <% end %>
 <% end %>
