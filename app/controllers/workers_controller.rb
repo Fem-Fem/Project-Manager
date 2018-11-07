@@ -30,8 +30,8 @@ class WorkersController < ApplicationController
 
   def update
     @worker = Worker.find(params[:id])
-    @worker.update(name: params[:name], position: params[:position])
-    redirect_to worker_path(@worker)
+    @worker.update(name: params[:worker][:name], position: params[:worker][:position])
+    redirect_to workers_path
   end
 
   def delete
