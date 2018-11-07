@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @project.name = params[:project][:name]
     @project.description = params[:project][:description]
+    @project.workers << params[:project][:worker]
     binding.pry
         #
     if @project.valid?
