@@ -28,12 +28,13 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:id])
   end
 
   def update
     @project = Project.find(params[:id])
-    @project.update(name: params[:name], description: params[:description])
-    redirect_to project_path(@project)
+    @project.update(name: params[:project][:name], description: params[:project][:description])
+    redirect_to projects_path
   end
 
   def delete
