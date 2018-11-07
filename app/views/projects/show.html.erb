@@ -1,3 +1,7 @@
+<p>
+  <%= @project.name %>: <%= @project.description %>
+</p>
+
 <%= div_for(@project.companies, class: "project-index-page") do |company| %>
 <p>
   <a href = "/companies/<%= company.id %>">
