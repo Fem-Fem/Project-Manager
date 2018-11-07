@@ -10,12 +10,13 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new
-    @project.name = params[:name]
-    @project.description = params[:description]
-    #
+    @project.name = params[:project][:name]
+    @project.description = params[:project][:description]
+    binding.pry
+        #
     if @project.valid?
       @project.save
-      redirect to project_path(@project)
+      redirect_to projects_path
     else
       render :new
     end
