@@ -1,5 +1,8 @@
+<h1>All Workers</h1>
+
 <%= div_for(@worker, class: "worker-index-page") do |worker| %>
   <p><a href = "/workers/<%= worker.id %>"><%= worker.name %></a>: <%= worker.position %></p>
 <% end %>
-
+<br>
+<br>
 <%= render 'footer' %>
