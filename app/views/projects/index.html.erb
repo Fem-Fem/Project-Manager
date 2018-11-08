@@ -1,5 +1,14 @@
+<h1>All Projects</h1>
+
 <%= div_for(@projects, class: "project-index-page") do |project| %>
-  <p><a href = "/projects/<%= project.id %>"><%= project.name %></a>: <%= project.description %></p>
+  <p>
+    <ul>
+      <li>
+      <a href = "/projects/<%= project.id %>"><%= project.name %></a>: <%= project.description %></p>
+      </li>
+    </ul>
 <% end %>
 
+<br>
+<br>
 <%= render 'workers/footer' %>
