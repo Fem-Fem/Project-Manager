@@ -28,6 +28,6 @@
 <% end %>
 <br>
 <br>
-<%= link_to "Edit Project", "/projects/:id/edit"%><br>
-<%= link_to "Delete Project", "/projects/:id/delete"%><br>
+<%= link_to "Edit Project", edit_project_path(@project)%><br>
+
 <%= render 'workers/footer' %>

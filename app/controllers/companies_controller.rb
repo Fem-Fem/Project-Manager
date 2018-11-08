@@ -18,6 +18,10 @@ class CompaniesController < ApplicationController
   end
 
   def login
+    render :login
+  end
+
+  def authenticate_login
     @company = Company.find(params[:name])
     if @company && @company.authenticate(params[:name])
       session[:name] = params[:name]
@@ -27,14 +31,14 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def show
-    @company = Company.find(params[:id])
-  end
-
   def logout
     if session[:name]
       session[:name] = nil
     end
+  end
+
+  def show
+    @company = Company.find(params[:id])
   end
 
   private
