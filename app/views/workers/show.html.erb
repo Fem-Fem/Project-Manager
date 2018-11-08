@@ -15,5 +15,5 @@
 </p>
 
 <%= link_to "Edit Worker", edit_worker_path(@worker)%><br>
-<%= link_to "Delete Worker", destroy_worker_path(@worker)%><br>
+<%= link_to "Delete Worker", @worker, :method => :delete%>
 <%= render 'footer' %>
