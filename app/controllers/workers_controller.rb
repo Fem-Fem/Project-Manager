@@ -29,7 +29,7 @@ class WorkersController < ApplicationController
     @worker = Worker.find(params[:id])
   end
 
-  def updates
+  def update
     @worker = Worker.find(params[:id])
     @worker.update(name: params[:worker][:name], position: params[:worker][:position])
     redirect_to workers_path

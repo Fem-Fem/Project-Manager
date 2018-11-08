@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :companies, only: [:index, :show, :new, :edit, :account, :login, :signup, :update] do
-    resources :workers, only: [:index, :show]
+    resources :workers, only: [:index, :show, :edit]
   end
   resources :projects, only: [:index, :show, :new, :edit, :update, :create, :most_popular, :destroy]
   resources :workers, only: [:index, :show, :new, :edit, :destroy, :update, :create]
