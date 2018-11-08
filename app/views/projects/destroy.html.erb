@@ -1,0 +1,4 @@
+<h2><%= @project.name %></h2>
+<%= form_tag projects_path, method: "delete" do %>
+  <%= submit_tag "Delete Project" %>
+<% end %>

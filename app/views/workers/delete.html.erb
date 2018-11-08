@@ -1,0 +1,4 @@
+<h2><%= @worker.name %></h2>
+<%= form_tag workers_path, method: "delete" do %>
+  <%= submit_tag "Delete Worker" %>
+<% end %>
