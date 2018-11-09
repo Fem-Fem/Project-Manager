@@ -14,7 +14,7 @@
 <h2>Workers: </h2>
 <% @company.workers.each do |worker| %>
 <p>
-  <a href = "/workers/<%= worker.id %>">
+  <a href = "/companies/<%=@company.id%>/workers/<%= worker.id %>">
     <%= worker.name %>:</a>
   <%= worker.position %>
 </p>

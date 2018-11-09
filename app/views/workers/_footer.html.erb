@@ -1,7 +1,7 @@
 <%= link_to "All Workers", "/workers"%><br>
 <%= link_to "All Projects", "/projects"%><br>
 <%= link_to "All Companies", "/companies"%><br>
-<%= link_to "Add New Worker", "/workers/new"%><br>
+<%= link_to "Add New Worker", new_company_worker_path(current_company)%><br>
 <%= link_to "Create New Project", "/projects/new"%><br>
 
 <%= link_to "Log Out", "/logout"%><br>

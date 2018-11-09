@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post 'companies/authenticate_login', :to => 'companies#authenticate_login'
 
   resources :companies, only: [:index, :new, :edit, :account, :signup, :update, :show] do
-    resources :workers, only: [:index, :show, :edit]
+    resources :workers, only: [:index, :show, :edit, :create, :new]
   end
   resources :projects, only: [:index, :new, :edit, :update, :create, :most_popular, :destroy, :show]
   resources :workers, only: [:index, :new, :edit, :destroy, :update, :create, :show]

@@ -4,4 +4,4 @@
 <p><a href = "/companies/<%= company.id %>"><%= company.name %></a>: <%= company.motto %></p>
 <% end %>
 
-<%= render 'workers/footer' %>
+<%= render partial: 'workers/footer', locals: {company: current_company} %>

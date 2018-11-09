@@ -3,11 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-      session[:username] = params[:username]
+      session[:name] = params[:name]
       redirect_to controller: 'companies', action: 'index'
   end
 
   def destroy
-    session.delete :username
+    session.delete :company_id
   end
 end

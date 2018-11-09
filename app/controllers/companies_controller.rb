@@ -3,6 +3,7 @@ class CompaniesController < ApplicationController
   # skip_before_action :require_login, only: [:signup, :login, :account]
 
   def index
+    session[:name] = "Apple"
     @companies = Company.all
   end
 

@@ -10,10 +10,12 @@ class WorkersController < ApplicationController
   end
 
   def create
+    @company = current_company
     @worker = Worker.new
     @worker.name = params[:worker][:name]
     @worker.position = params[:worker][:position]
     if @worker.valid?
+      @worker.company = current_company
       @worker.save
       redirect_to workers_path
     else
