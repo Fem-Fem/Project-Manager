@@ -10,6 +10,8 @@ class WorkersController < ApplicationController
   end
 
   def create
+    session[:name] = "Apple"
+    binding.pry
     @company = current_company
     @worker = Worker.new
     @worker.name = params[:worker][:name]
