@@ -13,8 +13,10 @@ class CompaniesController < ApplicationController
 
   def authenticate_signup
     @company = Company.new(name: params[:company][:name], password: params[:company][:password], location: params[:company][:location], motto: params[:company][:motto])
+    binding.pry
     if @company.valid?
-      redirect to company_path(@company)
+      @company.save
+      redirect_to company_path(@company)
       session[:name] = params[:company][:name]
     else
       render :index
@@ -26,7 +28,6 @@ class CompaniesController < ApplicationController
   end
 
   def authenticate_login
-    binding.pry
     @company = Company.find_by(name: params[:company][:name])
     if @company && @company.authenticate(params[:company][:password])
       session[:name] = params[:company][:name]
@@ -41,6 +42,7 @@ class CompaniesController < ApplicationController
     if session[:name]
       session[:name] = nil
     end
+    render :account
   end
 
   def show
