@@ -11,14 +11,13 @@ class CompaniesController < ApplicationController
     render :signup
   end
 
-  def signup
+  def authenticate_signup
     @company = Company.new(name: params[:name], password: params[:password], location: params[:location], motto: params[:motto])
     if @company.valid?
-      @company.save
       redirect to company_path(@company)
       session[:name] = params[:name]
     else
-      render :new
+      render :index
     end
   end
 

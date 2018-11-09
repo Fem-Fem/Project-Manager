@@ -1,4 +1,4 @@
-<%= form_tag companies_path do %>
+<%= form_tag '/companies/authenticate_signup' do %>
   <label>Company Name:</label><br>
   <%= text_field_tag :'company[name]' %><br>
   <label>Company Password:</label><br>
@@ -10,6 +10,3 @@
 
   <%= submit_tag "Signup" %>
 <% end %>
-
-
-<p>signup</p>
