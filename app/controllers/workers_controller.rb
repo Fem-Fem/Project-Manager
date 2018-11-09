@@ -11,7 +11,6 @@ class WorkersController < ApplicationController
   end
 
   def create
-    session[:name] = "Apple"
     @company = current_company
     @worker = Worker.new
     @worker.name = params[:worker][:name]

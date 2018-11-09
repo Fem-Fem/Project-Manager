@@ -20,6 +20,7 @@ class CompaniesController < ApplicationController
     if @company.valid?
       @company.save
       redirect_to company_path(@company)
+      binding.pry
       session[:name] = params[:company][:name]
     else
       render :index
@@ -31,17 +32,10 @@ class CompaniesController < ApplicationController
   end
 
   def authenticate_login
-    @company = Company.find_by(name: params[:company][:name])
-    if @company && @company.authenticate(params[:company][:password])
-      session[:name] = params[:company][:name]
-      redirect_to company_path(@company)
-    else
-      @errors = "Invalid combination!"
-      render :login
-    end
   end
 
   def logout
+    redirect_to 'sessions/destroy'
     if session[:name]
       session[:name] = nil
     end

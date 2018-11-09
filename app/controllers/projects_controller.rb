@@ -12,14 +12,6 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @project.name = params[:project][:name]
     @project.description = params[:project][:description]
-    worker = Worker.find_by(name: params[:project][:worker])
-    binding.pry
-    if worker
-      if worker.project_id != nil
-        render :new
-      else
-        @project.workers << params[:project][:worker]
-      end
     else
       # need error here. how to add worker error here?
     end

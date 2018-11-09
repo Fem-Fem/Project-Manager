@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   root 'companies#account'
   get 'companies/account', :to => 'companies#account'
   get 'companies/login', :to => 'companies#login'
+  post 'login', :to => 'sessions#create'
   get 'companies/signup', :to => 'companies#signup'
-  get 'companies/logout', :to => 'companies#logout'
-  post 'companies/authenticate_login', :to => 'companies#authenticate_login'
   post 'companies/authenticate_signup', :to => 'companies#authenticate_signup'
+  get 'logout', :to => 'sessions#destroy'
+
 
   resources :companies, only: [:index, :new, :edit, :account, :signup, :update, :show] do
     resources :workers, only: [:index, :show, :edit, :create, :new]
