@@ -8,6 +8,10 @@ class CompaniesController < ApplicationController
   end
 
   def signup
+    render :signup
+  end
+
+  def signup
     @company = Company.new(name: params[:name], password: params[:password], location: params[:location], motto: params[:motto])
     if @company.valid?
       @company.save
