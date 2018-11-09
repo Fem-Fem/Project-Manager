@@ -12,10 +12,10 @@ class CompaniesController < ApplicationController
   end
 
   def authenticate_signup
-    @company = Company.new(name: params[:name], password: params[:password], location: params[:location], motto: params[:motto])
+    @company = Company.new(name: params[:company][:name], password: params[:company][:password], location: params[:company][:location], motto: params[:company][:motto])
     if @company.valid?
       redirect to company_path(@company)
-      session[:name] = params[:name]
+      session[:name] = params[:company][:name]
     else
       render :index
     end
@@ -26,12 +26,14 @@ class CompaniesController < ApplicationController
   end
 
   def authenticate_login
-    @company = Company.find(params[:name])
-    if @company && @company.authenticate(params[:name])
-      session[:name] = params[:name]
-      redirect to company_path(@company)
+    binding.pry
+    @company = Company.find_by(name: params[:company][:name])
+    if @company && @company.authenticate(params[:company][:password])
+      session[:name] = params[:company][:name]
+      redirect_to company_path(@company)
     else
-      render :account
+      @errors = "Invalid combination!"
+      render :login
     end
   end
 
