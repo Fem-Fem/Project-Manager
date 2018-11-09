@@ -1,7 +1,11 @@
+<%= @errors %>
+
 <%= form_for @worker do |f| %>
   <%= f.label 'Worker Name:' %><br>
   <%= f.text_field :name %><br>
   <%= f.label 'Worker Position:' %><br>
   <%= f.text_field :position %><br>
+  <%= f.label 'Worker Project:' %> <br>
+  <%= f.collection_select :project_id, Project.all, :id, :name%>
   <%= f.submit "Update Worker" %>
 <% end %>

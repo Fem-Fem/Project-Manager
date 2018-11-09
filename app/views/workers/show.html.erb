@@ -13,7 +13,8 @@
   </a>
     <%= @worker.project.description %>
 </p>
-
-<%= link_to "Edit Worker", edit_worker_path(@worker)%><br>
-<%= link_to "Delete Worker", @worker, :method => :delete%>
+<% if current_company == @worker.company %>
+  <%= link_to "Edit Worker", edit_worker_path(@worker)%><br>
+  <%= link_to "Delete Worker", @worker, :method => :delete%>
+<% end %>
 <%= render 'footer' %>

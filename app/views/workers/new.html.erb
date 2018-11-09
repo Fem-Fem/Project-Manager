@@ -1,10 +1,12 @@
+<%= @errors %>
+
 <%= form_tag workers_path do %>
   <label>Worker Name:</label><br>
   <%= text_field_tag :'worker[name]' %><br>
   <label>Worker Position:</label><br>
   <%= text_field_tag :'worker[position]' %><br>
   <label>Worker Project:</label><br>
-  <%= select_tag :"worker[project]", options_from_collection_for_select(@projects, "id", "name") %>
+  <%= select_tag :"worker[project]", options_from_collection_for_select(@projects, :id, :name) %>
 
   <%= submit_tag "Create Worker" %>
 <% end %>

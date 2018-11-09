@@ -7,20 +7,23 @@ class WorkersController < ApplicationController
   end
 
   def new
+    @projects = Project.all
   end
 
   def create
     session[:name] = "Apple"
-    binding.pry
     @company = current_company
     @worker = Worker.new
     @worker.name = params[:worker][:name]
     @worker.position = params[:worker][:position]
     if @worker.valid?
       @worker.company = current_company
+      @worker.project_id = params[:worker][:project].to_i
       @worker.save
       redirect_to workers_path
     else
+      @projects = Project.all
+      @errors = @worker.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -36,10 +39,16 @@ class WorkersController < ApplicationController
   def update
     @worker = Worker.find(params[:id])
     @worker.update(name: params[:worker][:name], position: params[:worker][:position])
-    redirect_to workers_path
+    if @worker.valid?
+      redirect_to workers_path
+    else
+      @projects = Project.all
+      @errors = @worker.errors.full_messages.to_sentence
+      render :edit
+    end
   end
 
-  def delete
+  def destroy
     Worker.find(params[:id]).destroy
     redirect_to workers_path
   end
