@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'companies/login', :to => 'companies#login'
+  get 'companies/logout', :to => 'companies#logout'
   post 'companies/authenticate_login', :to => 'companies#authenticate_login'
 
   resources :companies, only: [:index, :new, :edit, :account, :signup, :update, :show] do
