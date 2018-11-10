@@ -12,7 +12,6 @@ class WorkersController < ApplicationController
   end
 
   def create
-    @company = current_company
     @worker = Worker.new
     @worker.name = params[:worker][:name]
     @worker.position = params[:worker][:position]

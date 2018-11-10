@@ -9,14 +9,18 @@
   </a>
   <%= @worker.company.motto %>
 </p>
+
+<% if @worker.project != nil %>
 <p>
   <a href = "/projects/<%= @worker.project.id %>">
     <%= @worker.project.name %>
   </a>
     <%= @worker.project.description %>
 </p>
+<% end %>
+
 <% if current_company == @worker.company %>
   <%= link_to "Edit Worker", edit_worker_path(@worker)%><br>
-  <%= link_to "Delete Worker", @worker, :method => :delete%>
+  <%= link_to "Delete Worker", @worker, :method => :delete%><br>
 <% end %>
 <%= render 'footer' %>

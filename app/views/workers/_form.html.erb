@@ -8,6 +8,6 @@
   <%= f.label 'Worker Rating:' %><br>
   <%= f.text_field :rating %><br>
   <%= f.label 'Worker Project:' %> <br>
-  <%= f.collection_select :project_id, Project.all, :id, :name%>
+  <%= f.collection_select :project_id, @projects, :id, :name%>
   <%= f.submit "Submit Worker" %>
 <% end %>
