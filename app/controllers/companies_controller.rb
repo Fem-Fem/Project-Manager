@@ -1,8 +1,10 @@
 class CompaniesController < ApplicationController
   before_action :require_login
+  before_action :already_logged_in, only: [:signup, :login, :account]
   skip_before_action :require_login, only: [:require_login, :signup, :login, :account]
 
   def account
+    binding.pry
     render :account
   end
 

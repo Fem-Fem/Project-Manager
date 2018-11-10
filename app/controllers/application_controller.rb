@@ -11,4 +11,10 @@ class ApplicationController < ActionController::Base
       redirect_to(controller: 'companies', action: 'account')
     end
   end
+
+  def already_logged_in
+    if current_company
+      redirect_to(controller: 'companies', action: 'index')
+    end
+  end
 end
