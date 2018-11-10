@@ -28,9 +28,11 @@
 <% end %>
 <br>
 
-<h3>Leader</h3>
+<h3>Leader: </h3>
 <% leader = Worker.most_valuable(@project.id) %>
-<a href = "/workers/<%= leader.id %>"><%= leader.name %></a>
+<% if leader != nil %>
+  <a href = "/workers/<%= leader.id %>"><%= leader.name %></a>
+<% end %>
 
 <br>
 <br>
