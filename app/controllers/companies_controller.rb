@@ -30,14 +30,6 @@ class CompaniesController < ApplicationController
     render :login
   end
 
-  def logout
-    redirect_to 'sessions/destroy'
-    if session[:name]
-      session[:name] = nil
-    end
-    render :account
-  end
-
   def show
     @company = Company.find(params[:id])
   end
