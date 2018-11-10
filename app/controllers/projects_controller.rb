@@ -51,10 +51,4 @@ class ProjectsController < ApplicationController
   def most_popular
   end
 
-  private
-
-  def require_login
-    return head(:forbidden) unless session.include? :company_id
-  end
-
 end
