@@ -14,10 +14,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     if session[:name]
       session[:name] = nil
     end
-    redirect_to 'companies/account'
+    redirect_to(controller: 'companies', action: 'account')
   end
 end

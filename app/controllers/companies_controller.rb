@@ -3,7 +3,6 @@ class CompaniesController < ApplicationController
   skip_before_action :require_login, only: [:require_login, :signup, :login, :account]
 
   def account
-    binding.pry
     render :account
   end
 
