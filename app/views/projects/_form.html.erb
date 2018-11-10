@@ -1,7 +1,7 @@
-<p><%= @errors %></p>
-
-<label>Project Name:</label><br>
-<%= text_field_tag :'project[name]' %><br>
-<label>Project Description:</label><br>
-<%= text_field_tag :'project[description]' %><br>
-<%= submit_tag "Submit Project" %>
+<%= form_for @project do |f| %>
+  <%= f.label 'Project Name:' %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label 'Project Description:' %><br>
+  <%= f.text_field :description %><br>
+  <%= f.submit "Submit Project" %>
+<% end %>
