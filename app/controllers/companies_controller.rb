@@ -4,7 +4,6 @@ class CompaniesController < ApplicationController
   skip_before_action :require_login, only: [:require_login, :signup, :login, :account]
 
   def account
-    binding.pry
     render :account
   end
 
@@ -20,8 +19,8 @@ class CompaniesController < ApplicationController
     @company = Company.new(name: params[:company][:name], password: params[:company][:password], location: params[:company][:location], motto: params[:company][:motto])
     if @company.valid?
       @company.save
-      redirect_to company_path(@company)
       session[:name] = params[:company][:name]
+      redirect_to company_path(@company)
     else
       render :index
     end
