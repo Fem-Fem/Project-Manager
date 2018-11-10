@@ -1,5 +1,5 @@
 class WorkersController < ApplicationController
-  # before_action :require_login
+  before_action :require_login
 
   def index
     @worker = Worker.all
@@ -50,12 +50,6 @@ class WorkersController < ApplicationController
   def destroy
     Worker.find(params[:id]).destroy
     redirect_to workers_path
-  end
-
-  private
-
-  def require_login
-    return head(:forbidden) unless session.include? :company_id
   end
 
 end

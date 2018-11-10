@@ -1,8 +1,9 @@
 class CompaniesController < ApplicationController
-  # before_action :require_login
-  # skip_before_action :require_login, only: [:signup, :login, :account]
+  before_action :require_login
+  skip_before_action :require_login, only: [:require_login, :signup, :login, :account]
 
   def account
+    binding.pry
     render :account
   end
 
@@ -16,11 +17,9 @@ class CompaniesController < ApplicationController
 
   def authenticate_signup
     @company = Company.new(name: params[:company][:name], password: params[:company][:password], location: params[:company][:location], motto: params[:company][:motto])
-    binding.pry
     if @company.valid?
       @company.save
       redirect_to company_path(@company)
-      binding.pry
       session[:name] = params[:company][:name]
     else
       render :index
@@ -29,9 +28,6 @@ class CompaniesController < ApplicationController
 
   def login
     render :login
-  end
-
-  def authenticate_login
   end
 
   def logout
@@ -46,9 +42,4 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
-  private
-
-  def require_login
-    return head(:forbidden) unless session.include? :company_id
-  end
 end
