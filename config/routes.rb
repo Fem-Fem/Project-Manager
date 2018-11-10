@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'companies#account'
-  get 'companies/account', :to => 'companies#account'
+  get 'account', :to => 'companies#account'
   get 'login', :to => 'companies#login'
   post 'login', :to => 'sessions#create'
   get 'signup', :to => 'companies#signup'
@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   get 'logout', :to => 'sessions#destroy'
 
 
-  resources :companies, only: [:index, :new, :edit, :account, :signup, :update, :show] do
+  resources :companies, only: [:index, :show] do
     resources :workers, only: [:index, :show, :edit, :create, :new]
   end
-  resources :projects, only: [:index, :new, :edit, :update, :create, :most_popular, :destroy, :show]
+  resources :projects, only: [:index, :new, :edit, :update, :create, :destroy, :show]
   resources :workers, only: [:index, :new, :edit, :destroy, :update, :create, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
