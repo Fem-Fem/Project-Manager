@@ -8,6 +8,7 @@ class WorkersController < ApplicationController
 
   def new
     @projects = Project.all
+    @worker = Worker.new
   end
 
   def create

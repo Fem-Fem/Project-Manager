@@ -1,8 +1,13 @@
-<%= form_tag workers_path do %>
-  <label>Worker Name:</label><br>
-  <%= text_field_tag :'worker[name]' %><br>
-  <label>Worker Position:</label><br>
-  <%= text_field_tag :'worker[position]' %><br>
+<%= @errors %>
 
-  <%= submit_tag "Create Worker" %>
+<%= form_for @worker do |f| %>
+  <%= f.label 'Worker Name:' %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label 'Worker Position:' %><br>
+  <%= f.text_field :position %><br>
+  <%= f.label 'Worker Rating:' %><br>
+  <%= f.text_field :rating %><br>
+  <%= f.label 'Worker Project:' %> <br>
+  <%= f.collection_select :project_id, Project.all, :id, :name%>
+  <%= f.submit "Submit Worker" %>
 <% end %>
