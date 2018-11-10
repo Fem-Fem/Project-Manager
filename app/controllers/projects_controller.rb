@@ -12,10 +12,6 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @project.name = params[:project][:name]
     @project.description = params[:project][:description]
-    else
-      # need error here. how to add worker error here?
-    end
-
     if @project.valid?
       @project.save
       redirect_to projects_path
@@ -42,13 +38,10 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     render :destroy
   end
-
+  
   def destroy
     @project = Project.find(params[:id]).destroy
     redirect_to projects_path
-  end
-
-  def most_popular
   end
 
 end

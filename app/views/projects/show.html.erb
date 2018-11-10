@@ -27,7 +27,15 @@
   <% end %>
 <% end %>
 <br>
+
+<h3>Leader</h3>
+<% leader = Worker.most_valuable(@project.id) %>
+<a href = "/workers/<%= leader.id %>"><%= leader.name %></a>
+
 <br>
+<br>
+<br>
+
 <%= link_to "Edit Project", edit_project_path(@project)%><br>
 <%= link_to "Delete Project", @project, :method => :delete%>
 <%= render 'workers/footer' %>

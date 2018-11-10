@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 3) do
   create_table "workers", force: :cascade do |t|
     t.string   "name"
     t.string   "position"
+    t.integer  "rating"
     t.integer  "company_id"
     t.integer  "project_id"
     t.datetime "created_at", null: false

@@ -15,6 +15,7 @@ class WorkersController < ApplicationController
     @worker = Worker.new
     @worker.name = params[:worker][:name]
     @worker.position = params[:worker][:position]
+    @worker.rating = params[:worker][:rating]
     if @worker.valid?
       @worker.company = current_company
       @worker.project_id = params[:worker][:project].to_i
@@ -37,7 +38,7 @@ class WorkersController < ApplicationController
 
   def update
     @worker = Worker.find(params[:id])
-    @worker.update(name: params[:worker][:name], position: params[:worker][:position])
+    @worker.update(name: params[:worker][:name], position: params[:worker][:position], rating: params[:worker][:rating])
     if @worker.valid?
       redirect_to workers_path
     else

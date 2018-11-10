@@ -13,9 +13,9 @@ self_driving_car = Project.create(name: "Project Alpha", description: "Creating 
 mind_reading_technology = Project.create(name: "Project Beta", description: "Working on telepathy")
 teaching_people_to_code = Project.create(name: "Project Zeta", description: "Spreading the joys of coding everywhere")
 
-femi = Worker.create(name: "Femi", position: "Software Engineer I")
-clara = Worker.create(name: "Clara", position: "Front End Engineer I")
-jake = Worker.create(name: "Jake", position: "Backend Engineer I")
+femi = Worker.create(name: "Femi", position: "Software Engineer I", rating: 9)
+clara = Worker.create(name: "Clara", position: "Front End Engineer I", rating: 10)
+jake = Worker.create(name: "Jake", position: "Backend Engineer I", rating: 8)
 
 femi.company_id = apple.id
 femi.project_id = self_driving_car.id
