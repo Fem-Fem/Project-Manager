@@ -22,7 +22,6 @@ class CompaniesController < ApplicationController
       session[:name] = params[:company][:name]
       redirect_to company_path(@company)
     else
-      binding.pry
       @errors = @company.errors.full_messages.to_sentence
       render :'/companies/signup'
     end
