@@ -14,8 +14,10 @@ mind_reading_technology = Project.create(name: "Project Beta", description: "Wor
 teaching_people_to_code = Project.create(name: "Project Zeta", description: "Spreading the joys of coding everywhere")
 
 femi = Worker.create(name: "Femi", position: "Software Engineer I", rating: 9)
+funmi = Worker.create(name: "Funmi", position: "Advertiser", rating: 7)
 clara = Worker.create(name: "Clara", position: "Front End Engineer I", rating: 10)
 jake = Worker.create(name: "Jake", position: "Backend Engineer I", rating: 8)
+narlyn = Worker.create(name: "Narlyn", position: "Bio-Engineer", rating: 5)
 
 femi.company_id = apple.id
 femi.project_id = self_driving_car.id
@@ -28,3 +30,11 @@ clara.save
 jake.company_id = google.id
 jake.project_id = teaching_people_to_code.id
 jake.save
+
+funmi.company_id = google.id
+funmi.project_id = mind_reading_technology.id
+funmi.save
+
+narlyn.company_id = apple.id
+narlyn.project_id = teaching_people_to_code.id
+narlyn.save
