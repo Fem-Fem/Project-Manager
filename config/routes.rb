@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'companies#account'
   get 'companies/account', :to => 'companies#account'
-  get 'companies/login', :to => 'companies#login'
+  get 'login', :to => 'companies#login'
   post 'login', :to => 'sessions#create'
-  get 'companies/signup', :to => 'companies#signup'
+  get 'signup', :to => 'companies#signup'
   post 'companies/authenticate_signup', :to => 'companies#authenticate_signup'
   get 'logout', :to => 'sessions#destroy'
 
