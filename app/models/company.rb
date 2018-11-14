@@ -5,4 +5,7 @@ class Company < ActiveRecord::Base
   validates_presence_of :name, :location, :password, :motto
   validates :name, uniqueness: true
   validates :motto, uniqueness: true
+
+  def self.find_or_create_by_omniauth(auth_hash)
+  end
 end
