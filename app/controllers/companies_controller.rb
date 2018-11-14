@@ -16,6 +16,7 @@ class CompaniesController < ApplicationController
   end
 
   def authenticate_signup
+    #remove motto, replace w/ bio?
     @company = Company.new(name: params[:company][:name], password: params[:company][:password], location: params[:company][:location], motto: params[:company][:motto])
     if @company.valid?
       @company.save
