@@ -4,6 +4,8 @@ class SessionsController < ApplicationController
 
   def create
     # if auth
+    #   Company.find_or_create_by_omniauth(auth_hash)
+    #   redirect_to company_path(@company)
     #   @company = Company.new
     #   @company.name = auth["info"]["raw_info"]["company"]
     #   @company.location = auth["extra"]["raw_info"]["location"]
@@ -11,15 +13,13 @@ class SessionsController < ApplicationController
     #   @company.bio = auth["extra"]["raw_info"]["bio"]
 
     #   binding.pry
-    #   if @company.valid?
-    #     @company.save
-    #     session[:name] = params[:company][:name]
-    #     redirect_to company_path(@company)
     #   else
-    #     @errors = @company.errors.full_messages.to_sentence
-    #     render :'/companies/signup'
+    #     @errors = "Did not log into github correctly"
+    #     render :'account'
     #   end
     # end
+
+
     @company = Company.find_by(name: params[:company][:name])
     if @company && @company.authenticate(params[:company][:password])
       session[:name] = params[:company][:name]
