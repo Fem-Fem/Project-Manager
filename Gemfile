@@ -25,6 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
 gem 'pry'
 gem 'tux'
+gem 'dotenv-rails'
+gem 'omniauth'
+gem 'omniauth-github'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

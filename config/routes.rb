@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'account', :to => 'companies#account'
   get 'login', :to => 'companies#login'
   post 'login', :to => 'sessions#create'
+  get '/auth/github/callback' => 'sessions#create'
   get 'signup', :to => 'companies#signup'
   post 'companies/authenticate_signup', :to => 'companies#authenticate_signup'
   get 'logout', :to => 'sessions#destroy'

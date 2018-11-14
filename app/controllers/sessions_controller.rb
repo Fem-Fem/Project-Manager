@@ -19,4 +19,11 @@ class SessionsController < ApplicationController
     end
     redirect_to(controller: 'companies', action: 'account')
   end
+
+  private
+ 
+  def auth
+    request.env['omniauth.auth']
+  end
+
 end
