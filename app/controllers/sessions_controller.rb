@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     if auth
+      binding.pry
       @company = Company.find_or_create_by_omniauth(auth)
       session[:name] = @company.name
       redirect_to company_path(@company)
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
         redirect_to company_path(@company)
       else
         @errors = "Invalid combination!"
-        render :'/companies/account'
+        render :'/companies/login'
       end
     end
   end
