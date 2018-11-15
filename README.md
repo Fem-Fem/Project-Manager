@@ -1,3 +1,16 @@
+# Rails
+
+## Description
+
+This app tracks projects for companies! Add, update, see, and delete your workers! Look at other companies, and projects, and workers!
+
+## Install Instructions
+
+Get repo
+Clone to your local environment
+Run bundle install
+Run 'rails s' and enjoy!
+
 ## Usage
  After using rails s, the app should be easily navigatable! Navigate around to view companies/projects/workers, and to store data on your own workers! Create projects with other companies. Maybe find an employee to steal ;)
   
