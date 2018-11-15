@@ -1,10 +1,16 @@
 <h1>All Workers</h1>
 
-<%= div_for(@worker, class: "worker-index-page") do |worker| %>
-  <p>
-    <a href = "/workers/<%= worker.id %>"><%= worker.name %></a>: <%= worker.position %>
-  </p>
+<% Company.all.each do |company| %>
+	<h3><%= company.name %></h3>
+	<% company.workers.each do |worker| %>
+		<ul>
+			<li>
+				<a href = "/workers/<%= worker.id %>"><%= worker.name %></a>: <%= worker.position %>
+			</li>
+		</ul>
+	<% end%><br>
 <% end %>
+
 <br>
 <br>
 <%= render 'footer' %>
