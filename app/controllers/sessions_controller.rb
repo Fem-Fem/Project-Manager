@@ -4,8 +4,11 @@ class SessionsController < ApplicationController
 
   def create
     if auth
-      Company.find_or_create_by_omniauth(auth)
-    end
+      @company = Company.find_or_create_by_omniauth(auth)
+      session[:name] = @company.name
+      binding.pry
+      redirect_to company_path(@company)
+    else
     #   redirect_to company_path(@company)
     #   @company = Company.new
     #   @company.name = auth["info"]["raw_info"]["company"]
@@ -21,13 +24,14 @@ class SessionsController < ApplicationController
     # end
 
 
-    @company = Company.find_by(name: params[:company][:name])
-    if @company && @company.authenticate(params[:company][:password])
-      session[:name] = params[:company][:name]
-      redirect_to company_path(@company)
-    else
-      @errors = "Invalid combination!"
-      render :'/companies/login'
+      @company = Company.find_by(name: params[:company][:name])
+      if @company && @company.authenticate(params[:company][:password])
+        session[:name] = params[:company][:name]
+        redirect_to company_path(@company)
+      else
+        @errors = "Invalid combination!"
+        render :'/companies/login'
+      end
     end
   end
 
