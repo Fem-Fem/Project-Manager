@@ -5,7 +5,7 @@ class Worker < ActiveRecord::Base
   validates :name, uniqueness: true
 
   def self.most_valuable(id)
-    where('company_id = ?', id).order(rating: :desc).first
+    where('project_id = ?', id).order(rating: :desc).first
   end
 
 end

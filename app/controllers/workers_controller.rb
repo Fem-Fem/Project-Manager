@@ -33,6 +33,7 @@ class WorkersController < ApplicationController
   end
 
   def edit
+    @projects = Project.all
     @worker = Worker.find(params[:id])
   end
 
