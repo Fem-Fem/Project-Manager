@@ -1,4 +1,4 @@
-# Rails
+# Rails Project-Manager
 
 ## Description
 
