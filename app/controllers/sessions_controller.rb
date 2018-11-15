@@ -3,8 +3,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # if auth
-    #   Company.find_or_create_by_omniauth(auth_hash)
+    if auth
+      Company.find_or_create_by_omniauth(auth)
+    end
     #   redirect_to company_path(@company)
     #   @company = Company.new
     #   @company.name = auth["info"]["raw_info"]["company"]
