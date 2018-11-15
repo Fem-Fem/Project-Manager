@@ -23,7 +23,7 @@ class CompaniesController < ApplicationController
       redirect_to company_path(@company)
     else
       @errors = @company.errors.full_messages.to_sentence
-      render :'/companies/signup'
+      render :signup
     end
   end
 
