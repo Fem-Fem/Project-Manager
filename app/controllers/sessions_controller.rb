@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
     if auth
       @company = Company.find_or_create_by_omniauth(auth)
       session[:name] = @company.name
-      binding.pry
       redirect_to company_path(@company)
     else
       @company = Company.find_by(name: params[:company][:name])
