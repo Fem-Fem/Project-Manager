@@ -13,15 +13,17 @@
   </ul>
 </p>
 <% end %>
-<% binding.pry%>
 
 <h3>Workers: </h3>
 <% Worker.all.each do |worker| %>
   <% if worker.project_id == @project.id %>
     <p>
       <ul>
-        <li><a href = "/workers/<%= worker.id %>"><%= worker.name %></a>:
+        <li>
+          <p>
+          <a href = "/workers/<%= worker.id %>"><%= worker.name %></a>:
           <%= worker.position %>
+          </p>
         </li>
       </ul>
     </p>

@@ -18,8 +18,7 @@ class WorkersController < ApplicationController
     @worker.rating = params[:worker][:rating]
     if @worker.valid?
       @worker.company = current_company
-      binding.pry
-      @worker.project_id = params[:worker][:project.id].to_i
+      @worker.project_id = params[:worker][:project_id].to_i
       @worker.save
       redirect_to workers_path
     else
