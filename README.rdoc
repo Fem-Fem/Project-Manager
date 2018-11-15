@@ -1,28 +1,12 @@
-== README
+# Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
 
-Things you may want to cover:
+This app tracks projects for companies! Add, update, see, and delete your workers! Look at other companies, and projects, and workers!
 
-* Ruby version
+## Install Instructions
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. Get repo
+2. Clone to your local environment
+3. Run bundle install
+4. Run 'rails s' and enjoy!
