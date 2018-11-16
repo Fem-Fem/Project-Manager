@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
         redirect_to company_path(@company)
       else
         @errors = "Invalid combination!"
-        render :'/companies/login'
+        render :login
       end
     end
   end
