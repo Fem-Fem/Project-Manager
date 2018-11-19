@@ -1,13 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :require_login
-  # before_action :already_logged_in, only: [:signup, :account]
-  # skip_before_action :require_login, only: [:require_login, :signup, :account, :authenticate_signup]
   before_action :already_logged_in, only: [:signup]
   skip_before_action :require_login, only: [:require_login, :signup, :authenticate_signup, :index]
-
-  # def account
-  #   render :account
-  # end
 
   def index
     @companies = Company.all

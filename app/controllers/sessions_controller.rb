@@ -27,7 +27,6 @@ class SessionsController < ApplicationController
       session[:name] = nil
     end
     redirect_to(controller: 'companies', action: 'index')
-    # redirect_to(controller: 'companies', action: 'account')
   end
 
   private
