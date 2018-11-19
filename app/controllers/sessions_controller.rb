@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
 
   def create
     if auth
-      binding.pry
       @company = Company.find_or_create_by_omniauth(auth)
       session[:name] = @company.name
       redirect_to company_path(@company)
@@ -27,7 +26,8 @@ class SessionsController < ApplicationController
     if session[:name]
       session[:name] = nil
     end
-    redirect_to(controller: 'companies', action: 'account')
+    redirect_to(controller: 'companies', action: 'index')
+    # redirect_to(controller: 'companies', action: 'account')
   end
 
   private

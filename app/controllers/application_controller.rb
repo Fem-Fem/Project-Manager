@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
 
   def require_login
     if !current_company
-      redirect_to(controller: 'companies', action: 'account')
+      # redirect_to(controller: 'companies', action: 'account')
+      redirect_to(controller: 'companies', action: 'index')
     end
   end
 

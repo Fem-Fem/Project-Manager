@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'companies#account'
-  get 'account', :to => 'companies#account'
+  root 'companies#index'
+  # get 'account', :to => 'companies#account'
   get 'login', :to => 'sessions#login'
   post 'login', :to => 'sessions#create'
   get '/auth/github/callback' => 'sessions#create'
