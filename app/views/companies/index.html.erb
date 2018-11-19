@@ -2,9 +2,12 @@
 	<h1>All Companies</h1>
 
 	<%= div_for(@companies, class: "company-index-page") do |company| %>
-	<p><a href = "/companies/<%= company.id %>"><%= company.name %></a>: <%= company.motto %></p>
+		<ul>
+			<li>
+				<a href = "/companies/<%= company.id %>"><%= company.name %></a>: <%= company.motto %>
+			</li>
+		</ul>
 	<% end %>
-
 	<%= render partial: 'workers/footer', locals: {company: current_company} %>
 <% else %>
 	<%= link_to "Login", login_path%><br>

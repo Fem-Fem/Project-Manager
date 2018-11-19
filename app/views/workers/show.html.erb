@@ -19,6 +19,8 @@
 </p>
 <% end %>
 
+<br>
+<br>
 <% if current_company == @worker.company %>
   <%= link_to "Edit Worker", edit_worker_path(@worker)%><br>
   <%= link_to "Delete Worker", @worker, :method => :delete%><br>
