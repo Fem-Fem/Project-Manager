@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'signup', :to => 'companies#signup'
   post 'companies/authenticate_signup', :to => 'companies#authenticate_signup'
   get 'logout', :to => 'sessions#destroy'
+  get 'reports', :to =>'companies#reports'
 
 
   resources :companies, only: [:index, :show] do

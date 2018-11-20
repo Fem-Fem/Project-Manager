@@ -10,13 +10,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.new
-    @project.name = params[:project][:name]
-    @project.description = params[:project][:description]
-    if @project.valid?
-      @project.save
+    @project = Project.new(project_params)
+    if @project.save
       redirect_to projects_path
     else
+      @errors = @project.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -31,8 +29,14 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    @project.update(name: params[:project][:name], description: params[:project][:description])
+    @project.update(project_params)
     redirect_to projects_path
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit(:name, :description)
   end
 
 end

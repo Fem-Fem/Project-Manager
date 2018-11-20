@@ -1,0 +1,21 @@
+<% @company.each do |company| %>
+	<h3>Company Name:
+		<%=company.name%>
+	</h3>
+	<p>
+		Company Project Counts:
+		<%=company.projects.count%>
+	</p>
+	<p>
+		Company Rating Average:
+		<% x = 0%>
+		<% company.workers.each do |worker| %>
+			<% x = x + worker.rating %>
+		<% end %>
+		<% if company.workers.count == 0 %>
+			No people work here!
+		<% else %>
+			<%= x / company.workers.count %>
+		<% end %>
+	</p>
+<% end%>

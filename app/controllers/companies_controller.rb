@@ -27,4 +27,8 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
   end
 
+  def reports
+    @company = Company.all
+  end
+
 end
