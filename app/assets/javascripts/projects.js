@@ -17,10 +17,12 @@ const attachEventListeners = () => {
 }
 
 function showWorkers() {
-	$.get("/workers", function(data) {
-		data.map( x => [x.name, "/workers/" + x.id])
-		debugger;
-	})
+	$(".populateWorkers").text(	
+		$.get("/workers", function(data) {
+			data.map( x => [x.name, "/workers/" + x.id])
+		// debugger;
+		})
+	)
 }
 
 
