@@ -2,8 +2,9 @@ class WorkersController < ApplicationController
   before_action :require_login
 
   def index
-    @worker = Worker.all
-    render 'workers/index'
+    @workers = Worker.all
+    # render 'workers/index'
+    render json: @workers.json
   end
 
   def new
