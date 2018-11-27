@@ -3,8 +3,9 @@ class WorkersController < ApplicationController
 
   def index
     @workers = Worker.all
-    # render 'workers/index'
-    render json: @workers.json
+    respond_to do |format|
+      format.json {render :json => @workers}
+    end
   end
 
   def new
