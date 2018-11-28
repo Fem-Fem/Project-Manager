@@ -21,6 +21,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    # render :json @project.to_json
+    #need to change to serializer
   end
 
   def edit
