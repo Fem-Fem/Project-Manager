@@ -20,7 +20,7 @@ function showWorkers() {
 		data.map( x => [x.name, "/workers/" + x.id])
 		for (var i = 0; i < data.length; i++) {
 			linebreak = document.createElement("br")
-			$(".populateWorkers").append(`<a href=${data[i].id}>${data[i].name}</a>`)
+			$(".populateWorkers").append(`<a href=/workers/${data[i].id}>${data[i].name}</a>`)
 			$(".populateWorkers").append(linebreak)
 		}
 		linebreak = document.createElement("br")
