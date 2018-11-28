@@ -1,29 +1,23 @@
-$(function() {
-	$("a.load_comments").on("click", function (event) {
-		$.ajax
-	})
-})
-
-
 $(document).ready(function() {
 	attachEventListeners()
 })
 
 const attachEventListeners = () => {
 	$(".workers").on("click", function() {
-		// debugger
 		showWorkers();
 	})
 }
 
 function showWorkers() {
-	$(".populateWorkers").text(	
-		$.get("/workers", function(data) {
-			data.map( x => [x.name, "/workers/" + x.id])
-		// debugger;
-		})
-	)
+	$.get("/workers", function(data) {
+		data.map( x => [x.name, "/workers/" + x.id])
+		for (var i = 0; i < data.length; i++) {
+			debugger
+			$(".populateWorkers").append(`<a href=${data[i].id}>${data[i].name}</a>`)
+			linebreak = document.createElement("br")
+			$(".populateWorkers").append(linebreak)
+		}
+	})
 }
 
-
-// for each iteration, create div with info
+// create function to see if button has been clicked
