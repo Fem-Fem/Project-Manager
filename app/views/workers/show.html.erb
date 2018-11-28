@@ -1,21 +1,23 @@
-<h1><%= @worker.name %></h1>
-<h3><%= @worker.position %></ph3>
-<h3><%= @worker.rating %></ph3>
+<h1 class="workerName"><%= @worker.name %></h1>
+<h3 class="workerPosition"><%= @worker.position %></ph3>
+<h3 class="workerRating"><%= @worker.rating %></ph3>
 
+
+<a href="#" class="NextWorker" worker-id="<%=@worker.id%>">Next Worker</a>
 
 <p>
-  <a href = "/companies/<%= @worker.company.id %>">
+  <a href = "/companies/<%= @worker.company.id %>" class="workerCompany">
     <%= @worker.company.name %>
   </a>
-  <%= @worker.company.motto %>
+<!--   <%= @worker.company.motto %> -->
 </p>
 
 <% if @worker.project != nil %>
 <p>
-  <a href = "/projects/<%= @worker.project.id %>">
+  <a href = "/projects/<%= @worker.project.id %>" class="workerProject">
     <%= @worker.project.name %>
   </a>
-    <%= @worker.project.description %>
+<!--     <%= @worker.project.description %> -->
 </p>
 <% end %>
 

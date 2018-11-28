@@ -9,6 +9,10 @@ const attachEventListeners = () => {
 			showWorkers();
 		}
 	})
+
+	$(".NextWorker").on("click", function() {
+		nextWorker();
+	})
 }
 
 function showWorkers() {
@@ -33,4 +37,13 @@ function wasClicked() {
 	return false;
 }
 
-// create function to see if button has been clicked
+function nextWorker() {
+	var currentWorker = parseInt($(".NextWorker").attr("worker-id"))
+	$.get("/workers", function(data) {
+		var length = data.length
+		var nextWorker = data.slice(currentWorker)[0]
+		debugger
+	})
+}
+
+// create check for last worker
