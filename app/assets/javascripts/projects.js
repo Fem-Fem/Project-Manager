@@ -42,8 +42,16 @@ function nextWorker() {
 	$.get("/workers", function(data) {
 		var length = data.length
 		var nextWorker = data.slice(currentWorker)[0]
-		debugger
+		$.get("/workers/" + nextWorker.id + ".json", function(data) {
+			// unsure why this is not working
+			$(".workerName").text(data["name"])
+			$(".workerPosition").text(data["position"])
+			$(".workerRating").text(data["rating"])
+			$(".NextWorker").attr("worker-id", data["id"])
+			debugger
+		})
 	})
 }
+
 
 // create check for last worker

@@ -1,8 +1,8 @@
 <h1 class="workerName"><%= @worker.name %></h1>
-<h3 class="workerPosition"><%= @worker.position %></ph3>
-<h3 class="workerRating"><%= @worker.rating %></ph3>
+<h3 class="workerPosition"><%= @worker.position %></h3>
+<h3 class="workerRating"><%= @worker.rating %></h3>
 
-
+<br>
 <a href="#" class="NextWorker" worker-id="<%=@worker.id%>">Next Worker</a>
 
 <p>
@@ -23,6 +23,7 @@
 
 <br>
 <br>
+
 <% if current_company == @worker.company %>
   <%= link_to "Edit Worker", edit_worker_path(@worker)%><br>
   <%= link_to "Delete Worker", @worker, :method => :delete%><br>
