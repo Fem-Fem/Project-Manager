@@ -42,7 +42,20 @@
 <br>
 <br>
 
-<%= render 'workers/form' %>
+<%= @errors %>
+
+<%= form_for @worker do |f| %>
+  <%= f.label 'Worker Name:' %><br>
+  <%= f.text_field :name %><br>
+  <%= f.label 'Worker Position:' %><br>
+  <%= f.text_field :position %><br>
+  <%= f.label 'Worker Rating:' %><br>
+  <%= f.text_field :rating %><br>
+  <%= f.label 'Worker Project:' %> <br>
+  <%= f.collection_select :project_id, @projects, :id, :name%>
+  <%= f.submit "Submit Worker", class: "submit" %>
+<% end %>
+
 
 <%= link_to "Edit Project", edit_project_path(@project)%><br>
 <%= link_to "Delete Project", @project, :method => :delete%><br>

@@ -13,6 +13,11 @@ const attachEventListeners = () => {
 	$(".NextWorker").on("click", function() {
 		nextWorker();
 	})
+
+	$(".submit").on("submit", function(e) {
+		newWorker();
+		e.preventDefault();
+	})
 }
 
 function showWorkers() {
@@ -51,6 +56,11 @@ function nextWorker() {
 			debugger
 		})
 	})
+}
+
+function newWorker() {
+	url: this.action,
+	data: $(this).serialize();,
 }
 
 
