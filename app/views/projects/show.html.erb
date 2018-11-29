@@ -14,6 +14,8 @@
   </ul>
 </p>
 <% end %>
+
+
 <h3>Workers: </h3>
 <% Worker.all.each do |worker| %>
   <% if worker.project_id == @project.id %>
@@ -39,6 +41,8 @@
 
 <br>
 <br>
+
+<%= render 'workers/form' %>
 
 <%= link_to "Edit Project", edit_project_path(@project)%><br>
 <%= link_to "Delete Project", @project, :method => :delete%><br>

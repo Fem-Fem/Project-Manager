@@ -32,6 +32,7 @@ class WorkersController < ApplicationController
 
   def show
     @worker = Worker.find(params[:id])
+
     respond_to do |format|
       format.html {render :show}
       format.json {render json: @worker.to_json}
