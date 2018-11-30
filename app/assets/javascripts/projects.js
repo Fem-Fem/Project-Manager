@@ -60,12 +60,12 @@ function nextWorker() {
 
 function newProject() {
 	var values = $(this).serialize
-	debugger
 	var posting = $.post('/projects', values)
 
 	posting.done(function(data) {
 		var project = data;
-		debugger
+		$("#yo").text(project["name"])
+		$("#ya").text(project["description"])	
 	})
 }
 

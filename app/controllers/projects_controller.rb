@@ -13,7 +13,10 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      redirect_to projects_path
+      respond_to do |format|
+        format.html {redirect_to projects_path}
+        format.json {render json: @project, status: 201}
+      end
     else
       @errors = @project.errors.full_messages.to_sentence
       render :new
