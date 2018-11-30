@@ -14,9 +14,9 @@ const attachEventListeners = () => {
 		nextWorker();
 	})
 
-	$(".submit").on("submit", function(e) {
-		newWorker();
-		e.preventDefault();
+	$(".newProject").on("click", function(event) {
+		event.preventDefault();
+		newProject();
 	})
 }
 
@@ -58,9 +58,15 @@ function nextWorker() {
 	})
 }
 
-function newWorker() {
-	url: this.action,
-	data: $(this).serialize();,
+function newProject() {
+	var values = $(this).serialize
+	debugger
+	var posting = $.post('/projects', values)
+
+	posting.done(function(data) {
+		var project = data;
+		debugger
+	})
 }
 
 
