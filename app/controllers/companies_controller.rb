@@ -25,6 +25,10 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    respond_to do |format|
+      format.html {render: show}
+      format.json {render json: @company}
+    end
   end
 
   def reports

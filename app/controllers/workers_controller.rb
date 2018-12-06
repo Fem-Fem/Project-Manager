@@ -4,7 +4,8 @@ class WorkersController < ApplicationController
   def index
     @workers = Worker.all
     respond_to do |format|
-      format.json {render :json => @workers}
+      format.html {render :index}
+      format.json {render json: @workers}
     end
   end
 
