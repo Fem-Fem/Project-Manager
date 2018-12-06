@@ -4,7 +4,7 @@
 
 <h2>Projects: </h2>
 <% @company.projects.each do |project| %>
-<p>
+<p id="companies-project-list">
   <%= link_to project.name, project_path(project) %>
   <%= project.description %>
 </p>
@@ -12,7 +12,7 @@
 
 <h2>Workers: </h2>
 <% @company.workers.each do |worker| %>
-<p>
+<<p id="companies-worker-list">
   <a href = "/companies/<%=@company.id%>/workers/<%= worker.id %>">
   <%= link_to worker.name, company_worker_path(@company, worker) %>
     <%= worker.name %>:</a>
