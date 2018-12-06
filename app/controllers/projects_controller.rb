@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
     @worker = Worker.new
     @projects = Project.all
     respond_to do |format|
-      format.html {render: show}
+      format.html {render :show}
       format.json {render json: @project}
     end
     # render :json @project.to_json

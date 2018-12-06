@@ -3,7 +3,7 @@ $(document).ready(function() {
 })
 
 const attachEventListeners = () => {
-	$("button#projects-workers-button").on("click", function() {
+	$("#projects-workers-button").on("click", function() {
 		var clicked = wasClicked();
 		if (clicked == true) {
 			showWorkers();
@@ -21,8 +21,11 @@ const attachEventListeners = () => {
 }
 //
 function showWorkers() {
+	debugger
 	$.get("/workers.json", function(data) {
+		debugger
 		data.map( x => [x.name, "/workers/" + x.id])
+		debugger
 		for (var i = 0; i < data.length; i++) {
 			linebreak = document.createElement("br")
 			$(".populateWorkers").append(`
