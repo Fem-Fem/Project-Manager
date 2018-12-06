@@ -3,7 +3,7 @@ $(document).ready(function() {
 })
 
 const attachEventListeners = () => {
-	$(".workers").on("click", function() {
+	$("button#projects-workers-button").on("click", function() {
 		var clicked = wasClicked();
 		if (clicked == true) {
 			showWorkers();
@@ -19,13 +19,17 @@ const attachEventListeners = () => {
 		newProject();
 	})
 }
-
+//
 function showWorkers() {
-	$.get("/workers", function(data) {
+	$.get("/workers.json", function(data) {
 		data.map( x => [x.name, "/workers/" + x.id])
 		for (var i = 0; i < data.length; i++) {
 			linebreak = document.createElement("br")
-			$(".populateWorkers").append(`<a href=/workers/${data[i].id}>${data[i].name}</a>`)
+			$(".populateWorkers").append(`
+				<div>
+					<a href=/workers/${data[i].id}>${data[i].name}</a>
+				</div>
+				`)
 			$(".populateWorkers").append(linebreak)
 		}
 		linebreak = document.createElement("br")
@@ -41,23 +45,24 @@ function wasClicked() {
 	}
 	return false;
 }
-
+//
 function nextWorker() {
 	var currentWorker = parseInt($(".NextWorker").attr("worker-id"))
-	$.get("/workers", function(data) {
+	$.get("/workers.json", function(data) {
 		var length = data.length
 		var nextWorker = data.slice(currentWorker)[0]
-		$.get("/workers/" + nextWorker.id + ".json", function(data) {
+		$.get(`/workers/${nextWorker.id}.json`, function(data2) {
 			// unsure why this is not working
-			$(".workerName").text(data["name"])
-			$(".workerPosition").text(data["position"])
-			$(".workerRating").text(data["rating"])
-			$(".NextWorker").attr("worker-id", data["id"])
+			$(".workerName").text(data2["name"])
+			$(".workerPosition").text(data2["position"])
+			$(".workerRating").text(data2["rating"])
+			$(".NextWorker").attr("worker-id", data2["id"])
 			debugger
 		})
 	})
 }
 
+//
 function newProject() {
 	var values = $(this).serialize
 	var posting = $.post('/projects', values)
