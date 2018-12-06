@@ -1,5 +1,5 @@
 class CompanySerializer < ActiveModel::Serializer
-  attributes :id, :location, :password, :motto
-  has_many :workers
-  has_many :projects, through: :workers
+  attributes :id, :name, :location, :motto
+  has_many :workers, serializer: WorkerSerializer
+  has_many :projects, through: :workers, serializer: ProjectSerializer
 end

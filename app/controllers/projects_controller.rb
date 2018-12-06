@@ -31,8 +31,6 @@ class ProjectsController < ApplicationController
       format.html {render :show}
       format.json {render json: @project}
     end
-    # render :json @project.to_json
-    #need to change to serializer
   end
 
   def edit

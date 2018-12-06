@@ -19,13 +19,10 @@ const attachEventListeners = () => {
 		newProject();
 	})
 }
-//
+
 function showWorkers() {
-	debugger
 	$.get("/workers.json", function(data) {
-		debugger
 		data.map( x => [x.name, "/workers/" + x.id])
-		debugger
 		for (var i = 0; i < data.length; i++) {
 			linebreak = document.createElement("br")
 			$(".populateWorkers").append(`
@@ -48,10 +45,11 @@ function wasClicked() {
 	}
 	return false;
 }
-//
+
 function nextWorker() {
 	var currentWorker = parseInt($(".NextWorker").attr("worker-id"))
 	$.get("/workers.json", function(data) {
+		debugger
 		var length = data.length
 		var nextWorker = data.slice(currentWorker)[0]
 		$.get(`/workers/${nextWorker.id}.json`, function(data2) {
@@ -59,8 +57,9 @@ function nextWorker() {
 			$(".workerName").text(data2["name"])
 			$(".workerPosition").text(data2["position"])
 			$(".workerRating").text(data2["rating"])
-			$(".NextWorker").attr("worker-id", data2["id"])
 			debugger
+			$(".workerCompany").text(data2["rating"])
+			$(".NextWorker").attr("worker-id", data2["id"])
 		})
 	})
 }

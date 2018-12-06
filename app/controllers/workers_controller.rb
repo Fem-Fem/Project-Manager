@@ -36,7 +36,7 @@ class WorkersController < ApplicationController
 
     respond_to do |format|
       format.html {render :show}
-      format.json {render json: @worker.to_json}
+      format.json {render json: @worker}
     end
   end
 
