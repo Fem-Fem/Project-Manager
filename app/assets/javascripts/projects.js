@@ -52,7 +52,12 @@ function nextWorker() {
 	var currentWorker = parseInt($(".NextWorker").attr("worker-id"))
 	$.get("/workers.json", function(data) {
 		var length = data.length
-		var nextWorker = data.slice(currentWorker)[0]
+		if (data.slice(currentWorker)[0] == null) {
+			var nextWorker = data[0]
+		}
+		else {
+			var nextWorker = data.slice(currentWorker)[0]
+		}
 		$.getJSON(`/workers/${nextWorker.id}`, function(data2) {
 			// unsure why this is not working
 			$(".workerName").text(data2["name"])
