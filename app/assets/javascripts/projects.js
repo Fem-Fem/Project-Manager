@@ -10,7 +10,9 @@ const attachEventListeners = () => {
 		}
 	})
 
-	$(".NextWorker").on("click", function() {
+	$(".NextWorker").on("click", function(e) {
+		e.preventDefault()
+		e.stopPropagation()
 		nextWorker();
 	})
 
@@ -49,16 +51,15 @@ function wasClicked() {
 function nextWorker() {
 	var currentWorker = parseInt($(".NextWorker").attr("worker-id"))
 	$.get("/workers.json", function(data) {
-		debugger
 		var length = data.length
 		var nextWorker = data.slice(currentWorker)[0]
-		$.get(`/workers/${nextWorker.id}.json`, function(data2) {
+		$.getJSON(`/workers/${nextWorker.id}`, function(data2) {
 			// unsure why this is not working
 			$(".workerName").text(data2["name"])
 			$(".workerPosition").text(data2["position"])
 			$(".workerRating").text(data2["rating"])
-			debugger
-			$(".workerCompany").text(data2["rating"])
+			$(".workerCompany").text(data2.company.name)
+			$(".workerProject").text(data2.project.name)
 			$(".NextWorker").attr("worker-id", data2["id"])
 		})
 	})
