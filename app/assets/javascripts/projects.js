@@ -76,6 +76,7 @@ function nextWorker() {
 	})
 }
 
+
 function showManyWorkers() {
 
 }
@@ -94,6 +95,9 @@ function newProject() {
 			'description': $("#project_description").val()
 		}
 	}
+	success: function(response) {
+		$("")
+	}
 
 	debugger
 
@@ -102,4 +106,16 @@ function newProject() {
 	// 	$("#yo").text(project["name"])
 	// 	$("#ya").text(project["description"])	
 	// })
+}
+
+class Project() {
+	constructor(description, name){
+		this.description = description;
+		this.name = name;
+	}
+}
+
+Project.prototype.highlight = function() {
+	var today = new Date();
+	return `<div>Created on ${today.getDate()}</div>`
 }
