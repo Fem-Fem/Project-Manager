@@ -34,7 +34,7 @@ const attachEventListeners = () => {
 			success: function (response) {
 				console.log(response)
 				console.log("success")
-				var $ol = $(".project-index-page")
+				var $ol = $(".allProjects")
 				$ol.append(response)
 			},
 			error: function (response) {
