@@ -91,6 +91,7 @@ function newProject(x) {
 		url: x.action,
 		data: $(x).serialize(),
 		success: function (response) {
+			debugger
 		if (validations(response) == false) {
 			$(".project-form").empty();
 			$(".project-form").append(response);
@@ -99,11 +100,11 @@ function newProject(x) {
 			console.log(response)
 			var $ol = $(".allProjects")
 			$ol.append(response)
-					$ol.append('hi')
-			// var name = $("#project_name").val()
-			// var description = $("#project_description").val()
-			// const project = new Project(name, description)
-			// project.showDate(response)
+			$ol.append('hi')
+			var name = $("#project_name").val()
+			var description = $("#project_description").val()
+			const project = new Project(name, description)
+			project.showDate(response)
 		}
 	}
 	})
