@@ -5,8 +5,7 @@
 	<% company.workers.each do |worker| %>
 		<ul>
 			<li>
-				<a href = "companies/<%=worker.company_id%>/workers/<%= worker.id %>"><%= worker.name %></a>: <%= worker.position %>
-				<%= link_to worker.name, company_worker_path(worker.company_id, worker), :class => "workers"%>
+				<%= link_to worker.name, company_worker_path(worker.company_id, worker), :class => "workers"%></a>: <%= worker.position %>
 			</li>
 		</ul>
 	<% end%><br>
