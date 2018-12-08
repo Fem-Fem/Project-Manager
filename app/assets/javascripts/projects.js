@@ -17,10 +17,32 @@ const attachEventListeners = () => {
 	})
 
 	$(".new_project").on("submit", function(event) {
-		console.log("hi")
 		event.preventDefault();
 		event.stopPropagation();
-		newProject();
+		debugger
+		// thisdata = {
+		// 	'authenticity_token': $("input[name='authenticity_token']").val(),
+		// 	'project': {
+		// 		'name': $("#project_name").val(),
+		// 		'description': $("#project_description").val()
+		// 	}
+		// }
+		jQuery.ajax({
+			type: this.method,
+			url: this.action,
+			data: $(this).serialize(),
+			success: function (response) {
+				console.log(response)
+				console.log("success")
+				var $ol = $(".project-index-page")
+				$ol.append(response)
+			},
+			error: function (response) {
+				console.log(response)
+				console.log("failure")
+			}
+		})
+
 	})
 
 	// $("#companies-project-list").on("click", function(event) {
@@ -86,39 +108,8 @@ function showManyProjects() {
 
 }
 
-function newProject() {
-	// var name = $("#project_description").val()
-	// var description = $("#project_name").val()
+function newProject(x) {
 
-
-	// data = {
-	// 	'newProject': {
-	// 		'name': $("#project_name").val(),
-	// 		'description': $("#project_description").val()
-	// 	}
-	// }
-	var info = $(".new_project")
-	jQuery.ajax({
-		type: "POST",
-		data: info.serialize(),
-		url: this.action,
-		dataType: "script",
-		success: function (data) {
-			console.log(info)
-			console.log(data)
-			console.log(this.action)
-			console.log("success")
-		},
-		error: function (data) {
-			console.log("failure")
-		}
-	})
-
-	// success: function(response) {
-	// 	$("project-index-page").val("");
-	// }
-
-	debugger
 }
 
 class Project {
