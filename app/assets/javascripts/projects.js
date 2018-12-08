@@ -87,21 +87,26 @@ function showManyProjects() {
 
 function newProject(x) {
 	jQuery.ajax({
-	type: x.method,
-	url: x.action,
-	data: $(x).serialize(),
-	success: function (response) {
+		type: x.method,
+		url: x.action,
+		data: $(x).serialize(),
+		success: function (response) {
 		if (validations(response) == false) {
 			$(".project-form").empty();
 			$(".project-form").append(response);
 		}
 		else {
+			console.log(response)
 			var $ol = $(".allProjects")
 			$ol.append(response)
+					$ol.append('hi')
+			// var name = $("#project_name").val()
+			// var description = $("#project_description").val()
+			// const project = new Project(name, description)
+			// project.showDate(response)
 		}
 	}
-})
-
+	})
 }
 
 function validations(response) {
@@ -115,13 +120,16 @@ function validations(response) {
 }
 
 class Project {
-	constructor(description, name){
-		this.description = description;
+	constructor(name, description) {
 		this.name = name;
+		this.description = description;
 	}
 }
 
-Project.prototype.highlight = function() {
+Project.prototype.showDate = function(this_response) {
 	var today = new Date();
-	return `<div>Created on ${today.getDate()}</div>`
+	var $ol = $(".allProjects")
+	debugger
+	$ol.append("Say Hi!")
+	$ol.append(`<div>Created on ${today.getDate()}</div>`)
 }
