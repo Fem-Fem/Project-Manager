@@ -19,21 +19,7 @@ const attachEventListeners = () => {
 	$(".new_project").on("submit", function(event) {
 		event.preventDefault();
 		event.stopPropagation();
-		jQuery.ajax({
-			type: this.method,
-			url: this.action,
-			data: $(this).serialize(),
-			success: function (response) {
-				if (validations(response) == false) {
-					$(".project-form").empty();
-					$(".project-form").append(response);
-				}
-				else {
-					var $ol = $(".allProjects")
-					$ol.append(response)
-				}
-			}
-		})
+		newProject(this)
 	})
 
 	// $("#companies-project-list").on("click", function(event) {
@@ -100,6 +86,21 @@ function showManyProjects() {
 }
 
 function newProject(x) {
+	jQuery.ajax({
+	type: x.method,
+	url: x.action,
+	data: $(x).serialize(),
+	success: function (response) {
+		if (validations(response) == false) {
+			$(".project-form").empty();
+			$(".project-form").append(response);
+		}
+		else {
+			var $ol = $(".allProjects")
+			$ol.append(response)
+		}
+	}
+})
 
 }
 
