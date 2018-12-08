@@ -20,13 +20,6 @@ const attachEventListeners = () => {
 		event.preventDefault();
 		event.stopPropagation();
 		debugger
-		// thisdata = {
-		// 	'authenticity_token': $("input[name='authenticity_token']").val(),
-		// 	'project': {
-		// 		'name': $("#project_name").val(),
-		// 		'description': $("#project_description").val()
-		// 	}
-		// }
 		jQuery.ajax({
 			type: this.method,
 			url: this.action,
@@ -34,14 +27,24 @@ const attachEventListeners = () => {
 			success: function (response) {
 				console.log(response)
 				console.log("success")
-				var $ol = $(".allProjects")
-				$ol.append(response)
+				var string = '<div class="errors">'
+				var error = response.search(string)
+				console.log(error)
+				if (error != -1) {
+					$(".project-form").empty();
+					$(".project-form").append(response);
+				}
+				else {
+					var $ol = $(".allProjects")
+					$ol.append(response)
+				}
 			},
 			error: function (response) {
 				console.log(response)
 				console.log("failure")
 			}
 		})
+		debugger
 
 	})
 

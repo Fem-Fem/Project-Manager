@@ -12,13 +12,14 @@
 
 <%=@errors%>
 
-<%= form_for @project do |f| %>
-  <%= f.label 'Project Name:' %><br>
-  <%= f.text_field :name %><br>
-  <%= f.label 'Project Description:' %><br>
-  <%= f.text_field :description %><br>
-  <%= f.submit "Submit Project", class: "newProject" %>
-<% end %>
-
+<div class="project-form">
+  <%= form_for @project do |f| %>
+    <%= f.label 'Project Name:' %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label 'Project Description:' %><br>
+    <%= f.text_field :description %><br>
+    <%= f.submit "Submit Project", class: "newProject" %>
+  <% end %>
+</div>
 
 <%= render 'workers/footer' %>
