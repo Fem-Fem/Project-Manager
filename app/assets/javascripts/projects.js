@@ -19,18 +19,12 @@ const attachEventListeners = () => {
 	$(".new_project").on("submit", function(event) {
 		event.preventDefault();
 		event.stopPropagation();
-		debugger
 		jQuery.ajax({
 			type: this.method,
 			url: this.action,
 			data: $(this).serialize(),
 			success: function (response) {
-				console.log(response)
-				console.log("success")
-				var string = '<div class="errors">'
-				var error = response.search(string)
-				console.log(error)
-				if (error != -1) {
+				if (validations(response) == false) {
 					$(".project-form").empty();
 					$(".project-form").append(response);
 				}
@@ -38,14 +32,8 @@ const attachEventListeners = () => {
 					var $ol = $(".allProjects")
 					$ol.append(response)
 				}
-			},
-			error: function (response) {
-				console.log(response)
-				console.log("failure")
 			}
 		})
-		debugger
-
 	})
 
 	// $("#companies-project-list").on("click", function(event) {
@@ -113,6 +101,16 @@ function showManyProjects() {
 
 function newProject(x) {
 
+}
+
+function validations(response) {
+	var string = '<div class="errors">'
+	var error = response.search(string)
+	if (error == -1)
+	{
+		return true
+	}
+	return false
 }
 
 class Project {
