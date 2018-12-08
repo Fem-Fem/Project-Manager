@@ -128,8 +128,9 @@ class Project {
 
 Project.prototype.showDate = function(this_response) {
 	var today = new Date();
+	var date = `${today.getMonth()}-${today.getDay()}-${today.getFullYear()}`
 	var $ol = $(".allProjects")
-	debugger
 	$ol.append("Say Hi!")
-	$ol.append(`<div>Created on ${today.getDate()}</div>`)
+	$ol.append(`<div>Created on ${date}</div>`)
+	console.log(date)
 }
