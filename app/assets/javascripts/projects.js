@@ -16,7 +16,8 @@ const attachEventListeners = () => {
 		nextWorker();
 	})
 
-	$(".newProject").on("click", function(event) {
+	$(".new_project").on("submit", function(event) {
+		console.log("hi")
 		event.preventDefault();
 		event.stopPropagation();
 		newProject();
@@ -86,29 +87,41 @@ function showManyProjects() {
 }
 
 function newProject() {
-	var values = $(this).serialize;
-	var posting = $.post('/projects', values);
+	// var name = $("#project_description").val()
+	// var description = $("#project_name").val()
 
-	data = {
-		'newProject': {
-			'name': $("#project_name").val(),
-			'description': $("#project_description").val()
+
+	// data = {
+	// 	'newProject': {
+	// 		'name': $("#project_name").val(),
+	// 		'description': $("#project_description").val()
+	// 	}
+	// }
+	var info = $(".new_project")
+	jQuery.ajax({
+		type: "POST",
+		data: info.serialize(),
+		url: this.action,
+		dataType: "script",
+		success: function (data) {
+			console.log(info)
+			console.log(data)
+			console.log(this.action)
+			console.log("success")
+		},
+		error: function (data) {
+			console.log("failure")
 		}
-	}
-	success: function(response) {
-		$("")
-	}
+	})
+
+	// success: function(response) {
+	// 	$("project-index-page").val("");
+	// }
 
 	debugger
-
-	// posting.done(function(data) {
-	// 	var project = data;
-	// 	$("#yo").text(project["name"])
-	// 	$("#ya").text(project["description"])	
-	// })
 }
 
-class Project() {
+class Project {
 	constructor(description, name){
 		this.description = description;
 		this.name = name;
