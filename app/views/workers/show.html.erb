@@ -7,17 +7,15 @@
 
 <p>
   <a href = "/companies/<%= @worker.company.id %>" class="workerCompany">
-    <%= @worker.company.name %>
-  </a>
-<!--   <%= @worker.company.motto %> -->
+    <%= @worker.company.name %>:</a>
+	<%= @worker.company.motto %>
 </p>
 
 <% if @worker.project != nil %>
 <p>
   <a href = "/projects/<%= @worker.project.id %>" class="workerProject">
-    <%= @worker.project.name %>
-  </a>
-<!--     <%= @worker.project.description %> -->
+    <%= @worker.project.name %>:</a>
+	<%= @worker.project.description %>
 </p>
 <% end %>
 
