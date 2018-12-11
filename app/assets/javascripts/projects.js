@@ -19,6 +19,7 @@ const attachEventListeners = () => {
 	$(".new_project").on("submit", function(event) {
 		event.preventDefault();
 		event.stopPropagation();
+		debugger
 		newProject(this);
 	})
 
@@ -124,17 +125,20 @@ function showManyProjects() {
 }
 
 function newProject(x) {
+	debugger
 	$.ajax({
 		type: x.method,
 		url: x.action,
 		data: $(x).serialize(),
 		dataType: "JSON"}).done(function(response) {
+			debugger
 			console.log(response);
 			let data = response;
-			if (response.errors.name === undefined) {
+			if ((response.errors.name === undefined) && (response.errors.description === undefined)) {
 				var $ol = $(".allProjects");
 				const project = new Project(response);
 				$ol.append(project.formatHTML());
+				$ol.append(project.showDate());
 			}
 			else {
 				$("#validation-error").text("Fail");				
@@ -153,9 +157,7 @@ class Project {
 Project.prototype.showDate = function(this_response) {
 	var today = new Date();
 	var date = `${today.getMonth()}-${today.getDay()}-${today.getFullYear()}`
-	var $ol = $(".allProjects")
-	$ol.append("Say Hi!")
-	$ol.append(`<div>Created on ${date}</div>`)
+	return (`<div>Created on ${date}</div>`)
 	console.log(date);
 }
 
