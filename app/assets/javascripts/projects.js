@@ -91,40 +91,18 @@ function newProject(x) {
 		url: x.action,
 		data: $(x).serialize(),
 		dataType: "JSON"}).done(function(response) {
-			debugger
-			console.log(response)
-			let data = response
+			console.log(response);
+			let data = response;
 			if (response.errors.name === undefined) {
-				debugger
-				var $ol = $(".allProjects")
-				const project = new Project(response)
-				// project.showDate(response)
+				var $ol = $(".allProjects");
+				const project = new Project(response);
 				$ol.append(project.formatHTML());
 			}
 			else {
 				$("#validation-error").text("Fail");				
 			}
-			})
-		// })
-		// success: function (response) {
-// 		console.log(response)
-// 		if (validations(response) == false) {
-			// $(".project-form").empty();
-			// $(".project-form").append(response);
-// 		}
-// 		else {
-// 			// console.log(response)
-			// var $ol = $(".allProjects")
-			// $ol.append(response)
-// 			$ol.append('hi')
-// 			var name = $("#project_name").val()
-// 			var description = $("#project_description").val()
-// 			const project = new Project(name, description)
-// 			// project.showDate(response)
-// 		}
-// 	}
-	// })
-}
+		})
+	}
 
 class Project {
 	constructor(attributes) {
@@ -140,18 +118,17 @@ Project.prototype.showDate = function(this_response) {
 	var $ol = $(".allProjects")
 	$ol.append("Say Hi!")
 	$ol.append(`<div>Created on ${date}</div>`)
-	console.log(date)
+	console.log(date);
 }
 
 Project.prototype.formatHTML = function() {
-	debugger
 	return (`<div id = "project_${this.id}" class="project project-index-page">
 					<ul>
 						<li>
 							<a href="/projects/${this.id}">${this.name}</a>: ${this.description}
 						</li>
 					</ul>
-				</div>`)
+				</div>`);
 }
 
 
