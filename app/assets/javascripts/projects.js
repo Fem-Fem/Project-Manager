@@ -19,7 +19,6 @@ const attachEventListeners = () => {
 	$(".new_project").on("submit", function(event) {
 		event.preventDefault();
 		event.stopPropagation();
-		debugger
 		newProject(this);
 	})
 
@@ -80,6 +79,27 @@ function nextWorker() {
 	})
 }
 
+function newProject(x) {
+	$.ajax({
+		type: x.method,
+		url: x.action,
+		data: $(x).serialize(),
+		dataType: "JSON"}).done(function(response) {
+			console.log(response);
+			let data = response;
+			if ((response.errors.name === undefined) && (response.errors.description === undefined)) {
+				var $ol = $(".allProjects");
+				const project = new Project(response);
+				$ol.append(project.formatHTML());
+				$("#validation-error").text("");
+				$("#project_name").val("")
+				$("#project_description").val("")
+			}
+			else {
+				$("#validation-error").text("Make sure both are unique and present");				
+			}
+		})
+	}
 
 function showManyWorkers() {
 	const urlArray = window.location.href.split("/")
@@ -124,29 +144,6 @@ function showManyProjects() {
 	})
 }
 
-function newProject(x) {
-	debugger
-	$.ajax({
-		type: x.method,
-		url: x.action,
-		data: $(x).serialize(),
-		dataType: "JSON"}).done(function(response) {
-			debugger
-			console.log(response);
-			let data = response;
-			if ((response.errors.name === undefined) && (response.errors.description === undefined)) {
-				var $ol = $(".allProjects");
-				const project = new Project(response);
-				$ol.append(project.formatHTML());
-				$ol.append(project.showDate());
-				$("#validation-error").text("");
-			}
-			else {
-				$("#validation-error").text("Make sure both are unique and present");				
-			}
-		})
-	}
-
 class Project {
 	constructor(attributes) {
 		this.name = attributes.name;
@@ -158,15 +155,15 @@ class Project {
 
 Project.prototype.showDate = function() {
 	var date = `${this.today.getMonth()}-${this.today.getDay()}-${this.today.getFullYear()}`
-	return (`<div>(Created on ${date})</div>`)
-	console.log(date);
+	return date
 }
 
 Project.prototype.formatHTML = function() {
+	var date = this.showDate();
 	return (`<div id = "project_${this.id}" class="project project-index-page">
 					<ul>
 						<li>
-							<a href="/projects/${this.id}">${this.name}</a>: ${this.description}
+							<a href="/projects/${this.id}">${this.name}</a>: ${this.description} (Created on ${date})
 						</li>
 					</ul>
 				</div>`);
