@@ -5,9 +5,8 @@
 </button><br>
 <div class="populateWorkers">
 </div>
-<%= link_to "All Projects", projects_path%><br>
+<%= link_to "All Projects/Create New Project", projects_path%><br>
 <%= link_to "All Companies", companies_path%><br>
 <%= link_to "Your Profile", "/companies/#{current_company.id}"%><br>
 <%= link_to "Add New Worker", new_company_worker_path(current_company)%><br>
-<%= link_to "Create New Project", new_project_path%><br>
 <%= link_to "Log Out", "/logout"%><br>
