@@ -5,8 +5,6 @@
 <h2>Projects: </h2>
 <% @company.projects.each do |project| %>
 <p id="companies-project-list">
-  <%= link_to project.name, project_path(project) %>
-  <%= project.description %>
 </p>
 <% end %>
 

@@ -22,12 +22,12 @@ const attachEventListeners = () => {
 		newProject(this);
 	})
 
-	$("#companies-project-list").on("load", function(event) {
-		showManyWorkers();
+	$("#companies-worker-list").ready(function(event) {
+		showManyProjects();
 	})
 
-	$("#companies-worker-list").on("load", function(event) {
-		showManyProjects();
+	$("#companies-project-list").ready(function(event) {
+		showManyWorkers();
 	})
 
 }
@@ -108,9 +108,7 @@ function showManyProjects() {
 	$.get("/projects.json", function(data) {
 		for (var i = 0; i < data.length; i++) {
 			for (var x = 0; x < data[i].companies.length; x++) {
-				debugger
 				if (data[i].companies[x].id === company_id) {
-					debugger
 					linebreak = document.createElement("br")
 					$("#companies-project-list").append(`
 						<div>
