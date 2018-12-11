@@ -102,7 +102,6 @@ function newProject(x) {
 				$ol.append(project.formatHTML());
 			}
 			else {
-				// debugger
 				$("#validation-error").text("Fail");				
 			}
 			})
@@ -131,6 +130,7 @@ class Project {
 	constructor(attributes) {
 		this.name = attributes.name;
 		this.description = attributes.description;
+		this.id = attributes.id;
 	}
 }
 
@@ -145,7 +145,13 @@ Project.prototype.showDate = function(this_response) {
 
 Project.prototype.formatHTML = function() {
 	debugger
-	$ol.append(`<div>Created on ${date}</div>`)
+	return (`<div id = "project_${this.id}" class="project project-index-page">
+					<ul>
+						<li>
+							<a href="/projects/${this.id}">${this.name}</a>: ${this.description}
+						</li>
+					</ul>
+				</div>`)
 }
 
 
