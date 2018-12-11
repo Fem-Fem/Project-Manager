@@ -87,7 +87,6 @@ function showManyWorkers() {
 	$.get("/workers.json", function(data) {
 		for (var i = 0; i < data.length; i++) {
 			if (data[i].company.id === company_id) {
-				debugger
 				linebreak = document.createElement("br")
 				$("#companies-worker-list").append(`
 					<div>
@@ -105,21 +104,22 @@ function showManyProjects() {
 	let urlArray = window.location.href.split("/")
 	let length = urlArray.length
 	let company_id = parseInt(urlArray[length-1])
-	debugger
 
 	$.get("/projects.json", function(data) {
-		debugger
 		for (var i = 0; i < data.length; i++) {
-			if (data[i].company.id === company_id) {
+			for (var x = 0; x < data[i].companies.length; x++) {
 				debugger
-				linebreak = document.createElement("br")
-				$("#companies-projct-list").append(`
-					<div>
-						<a href=/companies/${company_id}/projects/${data[i].id}>${data[i].name}</a>
-						: ${data[i].description}
-					</div>
-					`)
-				$("#companies-project-list").append(linebreak)
+				if (data[i].companies[x].id === company_id) {
+					debugger
+					linebreak = document.createElement("br")
+					$("#companies-project-list").append(`
+						<div>
+							<a href=/projects/${data[i].id}>${data[i].name}</a>
+							: ${data[i].description}
+						</div>
+						`)
+					$("#companies-project-list").append(linebreak)
+				}
 			}
 		}
 	})
