@@ -19,13 +19,16 @@ const attachEventListeners = () => {
 	$(".new_project").on("submit", function(event) {
 		event.preventDefault();
 		event.stopPropagation();
-		newProject(this)
+		newProject(this);
 	})
 
-	// $("#companies-project-list").on("click", function(event) {
-	// 	event.preventDefault();
-	// 	newProject();
-	// })
+	$("#companies-project-list").on("load", function(event) {
+		showManyProjects();
+	})
+
+	$("#companies-worker-list").on("load", function(event) {
+		showManyProjects();
+	})
 
 }
 
@@ -77,13 +80,32 @@ function nextWorker() {
 }
 
 
-function showManyWorkers() {
-
-}
-
 function showManyProjects() {
-
+	const urlArray = window.location.href.split("/")
+	const length = urlArray.length
+	const company_id = parseInt(urlArray[length-1])
+	$.get("/workers.json", function(data) {
+		// debugger
+		for (var i = 0; i < data.length; i++) {
+				// debugger
+			if (data[i].company.id === company_id) {
+				debugger
+				linebreak = document.createElement("br")
+				$("#companies-worker-list").append(`
+					<div>
+						<a href=/companies/${company_id}/workers/${data[i].id}>${data[i].name}</a>
+						: ${data[i].position}
+					</div>
+					`)
+				$("#companies-worker-list").append(linebreak)
+			}
+		}
+	})
 }
+
+// function showManyProjects() {
+
+// }
 
 function newProject(x) {
 	$.ajax({
