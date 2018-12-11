@@ -80,14 +80,12 @@ function nextWorker() {
 }
 
 
-function showManyProjects() {
+function showManyWorkers() {
 	const urlArray = window.location.href.split("/")
 	const length = urlArray.length
 	const company_id = parseInt(urlArray[length-1])
 	$.get("/workers.json", function(data) {
-		// debugger
 		for (var i = 0; i < data.length; i++) {
-				// debugger
 			if (data[i].company.id === company_id) {
 				debugger
 				linebreak = document.createElement("br")
@@ -103,9 +101,9 @@ function showManyProjects() {
 	})
 }
 
-// function showManyProjects() {
+function showManyProjects() {
 
-// }
+}
 
 function newProject(x) {
 	$.ajax({
