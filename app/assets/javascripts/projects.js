@@ -86,44 +86,51 @@ function showManyProjects() {
 }
 
 function newProject(x) {
-	jQuery.ajax({
+	$.ajax({
 		type: x.method,
 		url: x.action,
 		data: $(x).serialize(),
-		success: function (response) {
+		dataType: "JSON"}).done(function(response) {
 			debugger
-		if (validations(response) == false) {
-			$(".project-form").empty();
-			$(".project-form").append(response);
-		}
-		else {
 			console.log(response)
-			var $ol = $(".allProjects")
-			$ol.append(response)
-			$ol.append('hi')
-			var name = $("#project_name").val()
-			var description = $("#project_description").val()
-			const project = new Project(name, description)
-			project.showDate(response)
-		}
-	}
-	})
-}
-
-function validations(response) {
-	var string = '<div class="errors">'
-	var error = response.search(string)
-	if (error == -1)
-	{
-		return true
-	}
-	return false
+			let data = response
+			if (response.errors.name === undefined) {
+				debugger
+				var $ol = $(".allProjects")
+				const project = new Project(response)
+				// project.showDate(response)
+				$ol.append(project.formatHTML());
+			}
+			else {
+				// debugger
+				$("#validation-error").text("Fail");				
+			}
+			})
+		// })
+		// success: function (response) {
+// 		console.log(response)
+// 		if (validations(response) == false) {
+			// $(".project-form").empty();
+			// $(".project-form").append(response);
+// 		}
+// 		else {
+// 			// console.log(response)
+			// var $ol = $(".allProjects")
+			// $ol.append(response)
+// 			$ol.append('hi')
+// 			var name = $("#project_name").val()
+// 			var description = $("#project_description").val()
+// 			const project = new Project(name, description)
+// 			// project.showDate(response)
+// 		}
+// 	}
+	// })
 }
 
 class Project {
-	constructor(name, description) {
-		this.name = name;
-		this.description = description;
+	constructor(attributes) {
+		this.name = attributes.name;
+		this.description = attributes.description;
 	}
 }
 
@@ -135,3 +142,13 @@ Project.prototype.showDate = function(this_response) {
 	$ol.append(`<div>Created on ${date}</div>`)
 	console.log(date)
 }
+
+Project.prototype.formatHTML = function() {
+	debugger
+	$ol.append(`<div>Created on ${date}</div>`)
+}
+
+
+
+
+

@@ -18,8 +18,9 @@ class ProjectsController < ApplicationController
         format.json {render json: @project, status: 201}
       end
     else
-      @errors = @project.errors.full_messages.to_sentence
-      render :new
+      # @errors = @project.errors.full_messages.to_sentence
+      render json: @project
+      # render :new
     end
   end
 
