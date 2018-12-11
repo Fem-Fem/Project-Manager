@@ -23,7 +23,7 @@ const attachEventListeners = () => {
 	})
 
 	$("#companies-project-list").on("load", function(event) {
-		showManyProjects();
+		showManyWorkers();
 	})
 
 	$("#companies-worker-list").on("load", function(event) {
@@ -102,7 +102,27 @@ function showManyWorkers() {
 }
 
 function showManyProjects() {
+	let urlArray = window.location.href.split("/")
+	let length = urlArray.length
+	let company_id = parseInt(urlArray[length-1])
+	debugger
 
+	$.get("/projects.json", function(data) {
+		debugger
+		for (var i = 0; i < data.length; i++) {
+			if (data[i].company.id === company_id) {
+				debugger
+				linebreak = document.createElement("br")
+				$("#companies-projct-list").append(`
+					<div>
+						<a href=/companies/${company_id}/projects/${data[i].id}>${data[i].name}</a>
+						: ${data[i].description}
+					</div>
+					`)
+				$("#companies-project-list").append(linebreak)
+			}
+		}
+	})
 }
 
 function newProject(x) {

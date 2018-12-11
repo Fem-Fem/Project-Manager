@@ -4,6 +4,10 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     @project = Project.new
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @projects}
+    end
   end
 
   def new
