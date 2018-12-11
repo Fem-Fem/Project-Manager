@@ -139,9 +139,10 @@ function newProject(x) {
 				const project = new Project(response);
 				$ol.append(project.formatHTML());
 				$ol.append(project.showDate());
+				$("#validation-error").text("");
 			}
 			else {
-				$("#validation-error").text("Fail");				
+				$("#validation-error").text("Make sure both are unique and present");				
 			}
 		})
 	}
@@ -151,13 +152,13 @@ class Project {
 		this.name = attributes.name;
 		this.description = attributes.description;
 		this.id = attributes.id;
+		this.today = new Date();
 	}
 }
 
-Project.prototype.showDate = function(this_response) {
-	var today = new Date();
-	var date = `${today.getMonth()}-${today.getDay()}-${today.getFullYear()}`
-	return (`<div>Created on ${date}</div>`)
+Project.prototype.showDate = function() {
+	var date = `${this.today.getMonth()}-${this.today.getDay()}-${this.today.getFullYear()}`
+	return (`<div>(Created on ${date})</div>`)
 	console.log(date);
 }
 
