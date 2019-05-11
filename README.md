@@ -2,7 +2,11 @@
 
 ## Description
 
-This app tracks projects for companies! Add, update, see, and delete your workers! Look at other companies, and projects, and workers!
+This app tracks projects for companies! After logging in as a company either through Username/password or github, you enter the website as a company. The website keeps track of other companies, as well as their employees. This also lets companies come together to make cross-company projects, where employees of any company can work together to complete goals. You are able to add, update, view, and delete your workers and projects, as well as view all the companies on the site!
+
+This was made using Ruby on Rails for the Model-View-Controller architectural pattern.
+
+https://www.youtube.com/watch?v=WI4ezqFLeUo&feature=youtu.be
 
 ## Install Instructions
 
