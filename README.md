@@ -6,7 +6,7 @@ This app tracks projects for companies! After logging in as a company either thr
 
 This was made using Ruby on Rails for the Model-View-Controller architectural pattern.
 
-https://www.youtube.com/watch?v=WI4ezqFLeUo&feature=youtu.be
+Click this link for a walkthrough! https://www.youtube.com/watch?v=WI4ezqFLeUo&feature=youtu.be
 
 ## Install Instructions
 
